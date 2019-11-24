@@ -61,8 +61,8 @@ https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter
 [rewrite_remote]
 https://raw.githubusercontent.com/seamly01/neawly/master/QuantumultX.Conf, tag=QuantumultX简版, enabled=true
 https://raw.githubusercontent.com/seamly01/neawly/master/quanx.conf, tag=Neamly, enabled=false
-https://shiry.netlify.com/api/QuantumultXScriptSubscriptionAddDeviceID?id=28D01509.23AA&src=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/Js.conf, tag=NodyDa脚本, enabled=false
-https://shiry.netlify.com/api/QuantumultXScriptSubscriptionAddDeviceID?id=28D01509.23AA&src=https://raw.githubusercontent.com/langkhach270389/Scripting/master/QuantumultX/Fake_Vip.txt, tag=越南langkhach脚本, enabled=false
+https://shiry.netlify.com/api/QuantumultXScriptSubscriptionAddDeviceID?id=CF1FE6F0.B3BC&src=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/Js.conf, tag=NodyDa脚本, enabled=false
+https://shiry.netlify.com/api/QuantumultXScriptSubscriptionAddDeviceID?id=CF1FE6F0.B3BC&src=https://raw.githubusercontent.com/langkhach270389/Scripting/master/QuantumultX/Fake_Vip.txt, tag=越南langkhach脚本, enabled=false
 https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/Rewrite_lhie1.conf, tag=Ihie去重复, enabled=true
 https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Rewrite.conf, tag=神机复写规则, enabled=true
 http://cloudcompute.lbyczf.com/quanx-rewrite, tag=lhie1复写, enabled=true
