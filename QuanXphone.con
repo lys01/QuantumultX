@@ -68,6 +68,7 @@ https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Rewrit
 http://cloudcompute.lbyczf.com/quanx-rewrite, tag=lhie1复写, enabled=true
 [server_local]
 
+
 ;shadowsocks=example.com:80, method=chacha20, password=pwd, obfs=http, obfs-host=bing.com, obfs-uri=/resource/file, fast-open=false, udp-relay=false, server_check_url=http://www.apple.com/generate_204, tag=ss-01
 ;shadowsocks=example.com:80, method=chacha20, password=pwd, obfs=http, obfs-host=bing.com, obfs-uri=/resource/file, fast-open=false, udp-relay=false, tag=ss-02
 ;shadowsocks=example.com:443, method=chacha20, password=pwd, obfs=tls, obfs-host=bing.com, fast-open=false, udp-relay=false, tag=ss-03
