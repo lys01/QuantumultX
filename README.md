@@ -1,6 +1,6 @@
 # QuanXipa
 
-QUantumultX历史版本ipa   配置文件con
+QUantumultX配置文件conf和历史ipa
 
 thor历史版本ipa
 
