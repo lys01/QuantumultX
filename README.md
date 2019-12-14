@@ -1,6 +1,6 @@
 # QuanXipa
 
-QUantumultX配置文件conf和历史ipa
+QUantumultX配置文件：本地js为Local，Remote适用1.03及之前版本
 
 thor历史版本ipa
 
