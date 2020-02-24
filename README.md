@@ -29,7 +29,7 @@ Shu install ipa：itms-services://?action=download-manifest&amp;url=https://raw.
 
 
 # 京东商城
-01 9,20 * * * NobyDa/JD-DailyBonus/JD_DailyBonus.js
+01 9,20 * * * JD_DailyBonus.js
 # All in
 01 9,20 * * * all_in.js
 # 喜马拉雅
