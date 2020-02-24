@@ -25,3 +25,29 @@ Shu install ipa：itms-services://?action=download-manifest&amp;url=https://raw.
 00 9,20 * * * nzw9314/chavyleung/zimuzu/zimuzu.js
 # 疫情查看 
 40 8 * * * nCoV.js
+
+
+
+# 京东商城
+01 9,20 * * * NobyDa/JD-DailyBonus/JD_DailyBonus.js
+# All in
+01 9,20 * * * all_in.js
+# 喜马拉雅
+00 9,20 * * * ximalaya.js
+# 饿了么
+00 9,20 * * * elemSign.js
+# 美团
+00 9,20 * * * meituan.js
+# 去哪儿网
+00 9,20 * * * qunar.js
+# 携程旅行
+00 9,20 * * * ctrip.js
+# 什么值得买
+00 9,20 * * * smzdm.js
+# 人人视频
+00 9,20 * * * rrtv.js
+# 人人字幕组
+00 9,20 * * * zimuzu.js
+# 疫情查看 
+40 8 * * * nCoV.js
+
