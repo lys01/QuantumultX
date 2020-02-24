@@ -1,4 +1,4 @@
-
+# Ipa安装链接
 Shu install ipa：itms-services://?action=download-manifest&amp;url=https://raw.githubusercontent.com/seamly01/QuanXipa/master/Shu.plist
 
 #TaskLocal
@@ -23,9 +23,6 @@ Shu install ipa：itms-services://?action=download-manifest&amp;url=https://raw.
 00 9,20 * * * nzw9314/chavyleung/rrtv/rrtv.js
 # 人人字幕组
 00 9,20 * * * nzw9314/chavyleung/zimuzu/zimuzu.js
-# 疫情查看 
-40 8 * * * nCoV.js
-
 
 
 # 京东商城
@@ -48,6 +45,5 @@ Shu install ipa：itms-services://?action=download-manifest&amp;url=https://raw.
 00 9,20 * * * rrtv.js
 # 人人字幕组
 00 9,20 * * * zimuzu.js
-# 疫情查看 
-40 8 * * * nCoV.js
+
 
