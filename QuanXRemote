@@ -1,0 +1,128 @@
+[general]
+;excluded_routes=192.168.0.0/16, 172.16.0.0/12, 100.64.0.0/10, 10.0.0.0/8, 127.0.0.0/8, 224.0.0.0/24
+;network_check_url=http://www.baidu.com/
+
+server_check_url= http://www.qualcomm.cn/generate_204
+geo_location_checker=http://ip-api.com/json/?lang=zh-CN, https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/IP_API.js
+
+[dns]
+;server=1.0.0.1
+;server=8.8.8.8
+
+server=114.114.114.114
+server=119.29.29.29
+server=223.5.5.5
+server=/*.taobao.com/223.5.5.5
+server=/*.tmall.com/223.5.5.5
+server=/*.alipay.com/223.5.5.5
+server=/*.alicdn.com/223.5.5.5
+server=/*.aliyun.com/223.5.5.5
+server=/*.jd.com/119.28.28.28
+server=/*.qq.com/119.28.28.28
+server=/*.tencent.com/119.28.28.28
+server=/*.weixin.com/119.28.28.28
+server=/*.bilibili.com/119.29.29.29
+server=/hdslb.com/119.29.29.29
+server=/*.163.com/119.29.29.29
+server=/*.126.com/119.29.29.29
+server=/*.126.net/119.29.29.29
+server=/*.127.net/119.29.29.29
+server=/*.netease.com/119.29.29.29
+server=/*.mi.com/119.29.29.29
+server=/*.xiaomi.com/119.29.29.29
+
+[policy]
+static=🍎 苹果服务, direct, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Apple.png
+static=💻 国外影视, proxy, direct, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/GlobalMedia.png
+static=📽 国内视频, direct, proxy, img-url= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/DomesticMedia.png
+static=🎬 YouTube, proxy, direct, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/YouTube.png
+static=📺 Netflix, proxy, direct, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Netflix_Letter.png
+static=🌏 国外网站, proxy,direct, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Global.png
+static=🕹 黑/白名单,direct, proxy, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Final.png
+
+[server_remote]
+https://nely.netlify.com/, tag=Netlify, enabled=false
+
+[filter_remote]
+https://raw.githubusercontent.com/seamly01/QuanXConfig/master/Fliter.list, tag=😾 EyFliter, enabled=false
+https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/AdRule.list, tag=👻 NobyDa, enabled=false
+https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/Apple.list, tag= Apple服务, force-policy=🍎 苹果服务, enabled=true
+https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/ForeignMedia.list, tag=💻 国外影视, force-policy=💻 国外影视, enabled=true
+https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/DomesticMedia.list, tag=📽 国内视频, force-policy=📽 国内视频, enabled=true
+https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/Media/YouTube.list, tag=🎬 YouTube, force-policy=🎬 YouTube, enabled=true
+https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/Media/Netflix.list, tag=📺 Netflix, force-policy=📺 Netflix, enabled=false
+https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/Global.list, tag=🌍 国外网站, force-policy=🌏 国外网站, enabled=true
+https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/China.list, tag=🐼 国内网站, enabled=true
+https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/Advertising.list, tag=🚫 广告拦截, enabled=true
+https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Filter/Hijacking.list, tag=🚫 运营商劫持, enabled=true
+
+[rewrite_remote]
+https://raw.githubusercontent.com/seamly01/QuanXConfig/master/QuantumultxRewrite/EarymRemote.conf, tag=EarymRenote, enabled=true
+https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Get_Cookie_Remote.conf, tag=GetCookie, enabled=false
+https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Js.conf, tag=nzw9314, enabled=false
+https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/Rewrite_lhie1.conf, tag=NobyDa Rewrite, enabled=false
+https://raw.githubusercontent.com/ConnersHua/Profiles/master/Quantumult/X/Rewrite.conf, tag=Ihie Rewrite, enabled=true
+http://cloudcompute.lbyczf.com/quanx-rewrite, tag=lhie1 Rewrite, enabled=true
+
+[server_local]
+vmess=3.1.100.138:458, method=none, password=3d3ed372-17b1-37e3-a75e-6e0bf54cabbc, fast-open=false, udp-relay=false, tag=新加坡
+shadowsocks=p4.22332e.com:8333, method=rc4-md5, password=passfw2xs4e!, fast-open=false, udp-relay=false, tag=香港
+shadowsocks=p5.22332e.com:8333, method=rc4-md5, password=passfw2xs4e!, fast-open=false, udp-relay=false, tag=台湾
+shadowsocks=45.124.137.148:443, method=aes-256-cfb, password=ZiRCLoXO2, obfs=tls1.2_ticket_auth, fast-open=false, udp-relay=false, tag=日本
+shadowsocks=video16.cdn.globalnetworktraffic.com:873, method=chacha20-ietf, password=di15PV, ssr-protocol=auth_aes128_md5, ssr-protocol-param=69728:akKjys, fast-open=false, udp-relay=false, tag=Video16 深港 - netflix&tvb | IPL
+shadowsocks=video32.cdn.globalnetworktraffic.com:873, method=chacha20-ietf, password=di15PV, ssr-protocol=auth_aes128_md5, ssr-protocol-param=69728:akKjys, fast-open=false, udp-relay=false, tag=Video32 深新 - netflix | IPL
+http=a1.ap.fastqvpn.com:29980, username=288306972535554048, password=6eaeb31c4a5d4f49a88b14f09946c175, over-tls=true, tls-verification=true,tls-host=a1.ap.fastqvpn.com, fast-open=false, udp-relay=false, tag=新加坡01
+http=a4.ap.fastqvpn.com:29980, username=288306972535554048, password=6eaeb31c4a5d4f49a88b14f09946c175, over-tls=true, tls-verification=true,tls-host=a4.ap.fastqvpn.com, fast-open=false, udp-relay=false, tag=新加坡02
+http=a2.ap.fastqvpn.com:29980, username=288306972535554048, password=6eaeb31c4a5d4f49a88b14f09946c175, over-tls=true, tls-verification=true,tls-host=a2.ap.fastqvpn.com, fast-open=false, udp-relay=false, tag=日本01
+http=a2.ap.fastqvpn.com:29980, username=288306972535554048, password=6eaeb31c4a5d4f49a88b14f09946c175, over-tls=true, tls-verification=true,tls-host=a2.ap.fastqvpn.com, fast-open=false, udp-relay=false, tag=日本02
+
+[filter_local]
+ip-cidr, 10.0.0.0/8, direct
+ip-cidr, 127.0.0.0/8, direct
+ip-cidr, 172.16.0.0/12, direct
+ip-cidr, 192.168.0.0/16, direct
+ip-cidr, 224.0.0.0/24, direct
+geoip, cn, direct
+final, 🕹 黑/白名单
+
+[rewrite_local]
+
+
+[task_local]
+# 京东商城
+01 8,18 * * * https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
+# 活动抽奖
+01 8,18 * * * https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/hdcj.js
+# 喜马拉雅
+01 8,18 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/ximalaya/ximalaya.js
+# 饿了么
+01 8,18 * * * https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/elemSign.js
+# 美团
+01 8,18 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/meituan/meituan.js
+# 去哪儿网
+00 8,18 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/qunar/qunar.js
+# 携程旅行
+00 8,18 * * * https://raw.githubusercontent.com/nzw9314/QuantumultX/master/Script/ctrip.js
+# 中国电信
+00 8,18 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/10000/10000.js
+# 网易云音乐
+00 8,18 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/quanx/neteasemusic.js
+# 吾爱破解
+00 8,18 * * * https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/52pojie-DailyBonus/52pojie_DailyBonus_QX.js
+# 贴吧签到
+00 8,18 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/tieba/tieba.js
+# 什么值得买
+00 8,18 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/smzdm/quanx/smzdm.js
+# 人人视频
+00 8,18 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/rrtv/rrtv.js
+# 人人字幕组
+00 8,18 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/zimuzu/zimuzu.js
+[mitm]
+
+hostname =
+
+;skip_validating_cert = false
+;force_sni_domain_name = false
+;empty_sni_enabled = true
+passphrase = 89B0D21B
+p12 = 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
