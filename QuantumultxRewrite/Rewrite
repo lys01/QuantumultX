@@ -71,6 +71,7 @@ hostname = *.googlevideo.com, s.youtube.com, www.youtube.com, youtubei.googleapi
 ^https?:\/\/alogs\.umeng\.co url reject-img
 ^https?:\/\/alogs\.umeng\.com url reject-img
 ^https?:\/\/(\w\.)?up\.qingdaonews\.com url reject-img
+^https?:\/\/[\s\S]*\/ting\/[a-z]*\/ts-\d+ url reject-img
 # >> 闲鱼
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome\/ url reject-200
 # >飞猪
