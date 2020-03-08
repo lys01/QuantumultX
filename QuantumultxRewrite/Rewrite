@@ -175,9 +175,6 @@ hostname = *.googlevideo.com, s.youtube.com, www.youtube.com, youtubei.googleapi
 # > 喜马拉雅
 ^https?:\/\/\w+\.ximalaya\.com\/api\/v\d\/adRealTime url reject-200
 ^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/ting\/preload\/ url reject-200
-^https?:\/\/adse\.ximalaya\.com\/ting\/feed\?appid= url reject-img
-^https?:\/\/adse\.ximalaya\.com\/ting\/loading\?appid= url reject-img
-^https?:\/\/adse\.ximalaya\.com\/ting\?appid= url reject-img
 # > 知乎
 ^https?:\/\/www\.zhihu\.com\/api\/v4\/community-ad\/ url reject-200
 ^https?:\/\/api\.zhihu\.com\/(launch|real_time) url reject-200
