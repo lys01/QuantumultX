@@ -64,6 +64,23 @@ hostname = *.googlevideo.com, s.youtube.com, www.youtube.com, youtubei.googleapi
 ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/.+ad_ url reject-200
 ^https?:\/\/\w+\.youtube\.com\/api\/stats\/(ads|.+adformat) url reject-200
 ^https?:\/\/\w+\.youtube\.com\/(pagead|ptracking) url reject-200
+# > Youtube
+^https?:\/\/.+\.googlevideo\.com\/.+&oad url reject
+^https?:\/\/.+\.googlevideo\.com\/.+&owc url reject
+^https?:\/\/.+\.googlevideo\.com\/.+ctier url reject
+^https?:\/\/.+\.googlevideo\.com\/ptracking\?pltype=adhost url reject
+^https?:\/\/.+\.googlevideo\.com\/videogoodput\? url reject
+^https?:\/\/.+\.youtube\.com\/.+get_ads url reject
+^https?:\/\/.+\.youtube\.com\/api\/stats\/.+adformat url reject
+^https?:\/\/.+\.youtube\.com\/api\/stats\/ads url reject
+^https?:\/\/.+\.youtube\.com\/error_204 url reject
+^https?:\/\/.+\.youtube\.com\/get_midroll url reject
+^https?:\/\/.+\.youtube\.com\/pagead\/* url reject
+^https?:\/\/.+\.youtube\.com\/ptracking\? url reject
+^https?:\/\/play.googleapis.com/log* url reject
+^https?:\/\/www.googleapis.com/adsmeasurement/* url reject
+^https?:\/\/youtubei.googleapis.com/youtubei/.+ad_ url reject
+^https?:\/\/youtubei.googleapis.com/youtubei/.+log_ url reject
 # >> 闲鱼
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome\/ url reject-200
 # >飞猪
