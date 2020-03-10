@@ -11,7 +11,7 @@ $done({body: JSON.stringify(obj)});
 
 /*
 美区掌阅
-^https:\/\/api\.ireader\.mobi\/download\/fee_tpl\/.* url script-response-body NobyDa/Surge/JS/ireaderdown.js
+^https:\/\/api\.ireader\.mobi\/download\/fee_tpl\/.* url script-response-body https://raw.githubusercontent.com/seamly01/QuantumultX/master/Script/ireaderdown.js
 
 Mimt=api.ireader.mobi
 */
