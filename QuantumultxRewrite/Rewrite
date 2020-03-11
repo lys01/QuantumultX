@@ -72,9 +72,9 @@ hostname = *.googlevideo.com, s.youtube.com, www.youtube.com, youtubei.googleapi
 ^https?:\/\/alogs\.umeng\.com url reject-img
 ^https?:\/\/(\w\.)?up\.qingdaonews\.com url reject-img
 ^https?:\/\/[\s\S]*\/ting\/[a-z]*\/ts-\d+ url reject-img
-# >> 闲鱼
+# > 闲鱼
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome\/ url reject-200
-# >飞猪
+# > 飞猪
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources\/ url reject-200
 # > 淘票票
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryadvertise\/ url reject-200
@@ -88,11 +88,11 @@ hostname = *.googlevideo.com, s.youtube.com, www.youtube.com, youtubei.googleapi
 ^https?:\/\/.+\.mp4\?ccode=0902 url reject-200
 ^https?:\/\/.+\.mp4\?sid= url reject-200
 ^https?:\/\/vali\.cp31\.ott\.cibntv\.net\/youku\/.+\.mp4\?sid= url reject-200
-# >百度网盘
+# > 百度网盘
 ^https?:\/\/pan\.baidu\.com\/rest\/2.0\/pcs\/adx url reject-200
 ^https?:\/\/pan\.baidu\.com\/act\/api\/activityentry url reject-200
 ^https?:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/guanggao\/ url reject-200
-# >百度贴吧
+# > 百度贴吧
 ^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/splashSchedule url reject-200
 ^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/forum\/getAdInfo url reject-200
 ^https?:\/\/c\.tieba\.baidu\.com\/\w+\/\w+\/(sync|newRnSync|mlog) url reject-200
