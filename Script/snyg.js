@@ -8,7 +8,7 @@
 https://luckman.suning.com/luck-web/sign/api/clock_sign.do* url script-request-header snyg.js
 
 [mitm]
-hostname = hostname
+hostname = luckman.suning.com
 */
 
 const userCheckinURL = 'https://luckman.suning.com/luck-web/sign/api/clock_sign.do?';
