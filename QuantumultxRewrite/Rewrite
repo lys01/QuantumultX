@@ -105,9 +105,6 @@ hostname = *.googlevideo.com, s.youtube.com, www.youtube.com, youtubei.googleapi
 ^https?:\/\/api\.chelaile\.net\.cn\/goocity\/advert\/ url reject-200
 # ^https?:\/\/atrace\.chelaile\.net\.cn\/exhibit\?&adv_image url reject-200
 ^https?:\/\/pic\d\.chelaile\.net\.cn\/adv\/ url reject-200
-# > 多看阅读
-^https?:\/\/www\.duokan\.com/pictures? url reject-img
-^https?:\/\/www\.duokan\.com/promotion_day url reject-img
 # > 斗鱼TV
 ^https?:\/\/rtbapi\.douyucdn\.cn\/japi\/sign\/app\/getinfo url reject-200
 # > 嘀嗒出行
@@ -177,4 +174,3 @@ hostname = *.googlevideo.com, s.youtube.com, www.youtube.com, youtubei.googleapi
 ^https?:\/\/dsp\.toutiao\.com\/api\/xunfei\/ads\/ url reject-200
 ^https?:\/\/.+\.snssdk\.com\/motor\/operation\/activity\/display\/config\/V2\/ url reject-200
 ^https?:\/\/.+/img\/ad\.union\.api\/ url reject-200
-
