@@ -1,4 +1,4 @@
-hostname = *.googlevideo.com, s.youtube.com, www.youtube.com, youtubei.googleapis.com,ulogs.umeng.com,ulogs.umengcloud.com,alogs.umeng.com,alogs.umeng.co,*.amemv.com,*.iydsj.com,*.kingsoft-office-service.com,*.meituan.net,*.musical.ly,*.pstatp.com,*.snssdk.com,*.uve.weibo.com,acs.m.taobao.com,act.vip.iqiyi.com,api.chelaile.net.cn,api.jr.mi.com,api.m.jd.com,api.rr.tv,api.smzdm.com,api.yangkeduo.com,api.zhihu.com,*.tiktokv.com,*.tiktokcdn.com,app.58.com,app.bilibili.com,app-api.smzdm.com,c.m.163.com,cloud.189.cn,guide-acs.m.taobao.com,iface.iqiyi.com,mp.weixin.qq.com,interface.music.163.com,ios.wps.cn,m*.amap.com,manga.bilibili.com,mp.weixin.qq.com,ms.jr.jd.com,msspjh.emarbox.com,pic*.chelaile.net,render.alipay.com,rtbapi.douyucdn.cn,s*.zdmimg.com,ss0.bdstatic.com,weibointl.api.weibo.cn,
+hostname = *.googlevideo.com, s.youtube.com, www.youtube.com, youtubei.googleapis.com,ulogs.umeng.com,ulogs.umengcloud.com,alogs.umeng.com,alogs.umeng.co,*.amemv.com,*.iydsj.com,*.kingsoft-office-service.com,*.meituan.net,*.musical.ly,*.pstatp.com,*.snssdk.com,*.uve.weibo.com,acs.m.taobao.com,act.vip.iqiyi.com,api.chelaile.net.cn,api.jr.mi.com,api.m.jd.com,api.rr.tv,api.smzdm.com,api.yangkeduo.com,api.zhihu.com,www.zhihu.com,*.tiktokv.com,*.tiktokcdn.com,app.58.com,app.bilibili.com,app-api.smzdm.com,c.m.163.com,cloud.189.cn,guide-acs.m.taobao.com,iface.iqiyi.com,mp.weixin.qq.com,interface.music.163.com,ios.wps.cn,m*.amap.com,manga.bilibili.com,mp.weixin.qq.com,ms.jr.jd.com,msspjh.emarbox.com,pic*.chelaile.net,render.alipay.com,rtbapi.douyucdn.cn,s*.zdmimg.com,ss0.bdstatic.com,weibointl.api.weibo.cn,
 
 
 # Redirect Google Search Service
@@ -168,6 +168,7 @@ hostname = *.googlevideo.com, s.youtube.com, www.youtube.com, youtubei.googleapi
 ^https?:\/\/api\.zhihu\.com\/commercial_api\/(launch|real_time) url reject-200
 ^https?:\/\/api\.zhihu\.com\/fringe\/ad url reject-200
 ^https?:\/\/api\.zhihu\.com\/ad- url reject-200
+^https?:\/\/www\.zhihu\.com\/ url request-header (\r\n)User-Agent:.+(\r\n) request-header $1User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36$2
 # > 字节跳动
 ^https?:\/\/.+\.pstatp\.com\/img\/ad url reject-200
 ^https?:\/\/.+\.(amemv|musical|snssdk|tiktokv)\.(com|ly)\/(api|motor)\/ad\/ url reject-200
