@@ -132,7 +132,16 @@ DOMAIN,mobileads.msn.com,REJECT
 DOMAIN,mopnativeadv.037201.com,REJECT
 DOMAIN,nativeadv.dftoutiao.com,REJECT
 
-
+# > Umeng
+HOST,alog.umeng.co,REJECT
+HOST,alog.umeng.com,REJECT
+HOST,alogs.umeng.com,REJECT
+HOST,alog.umengcloud.com,REJECT
+HOST,alogs.umengcloud.com,REJECT
+HOST,ar.umeng.com,REJECT
+HOST,plbslog.umeng.com,REJECT
+HOST,ulogs.umeng.com,REJECT
+HOST,ulogs.umengcloud.com,REJECT
 # > Alibaba
 DOMAIN,optimus-ads.amap.com,REJECT
 DOMAIN,optimus-ads.amap.com.w.alikunlun.com,REJECT
@@ -214,4 +223,6 @@ DOMAIN,adse.ximalaya.com,REJECT
 DOMAIN,adse.wsa.ximalaya.com,REJECT
 DOMAIN,adbehavior.wsa.ximalaya.com,REJECT
 DOMAIN,adsebs.ximalaya.com,REJECT
+
+
 
