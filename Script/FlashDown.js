@@ -1,9 +1,10 @@
 /* Quantumult X 脚本: 闪电下载vip  下载链接🔗 http://bbs.flashdown365.com/download.html
 
-[rewrite_local] 
 #闪电下载vip
 ^http\:\/\/app\.flashdown365\.com\/ios\/login url script-response-body sdxz.js
-[mitm] hostname = app.flashdown365.com,
+
+hostname = app.flashdown365.com,
+
 
 范例1:
 var body = $response.body; // 声明一个变量body并以响应消息体赋值
