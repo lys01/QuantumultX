@@ -1,23 +1,14 @@
 const __conf = String.raw`
 
-
 [Remote]
-// custom remote...
 https://raw.githubusercontent.com/seamly01/QuantumultX/master/QuantumultxRewrite/EarymRemote.conf
 https://raw.githubusercontent.com/seamly01/QuantumultX/master/QuantumultxRewrite/GetCookie.conf
 
-
 [Local]
-// custom local...
-
 
 [Hostname]
-// custom hostname...
-// www.baidu.com, www.google.com
-
 
 `
-
 // 是否开启 GitHub 更新
 const __isUpdateGithub = true
 // GitHub Token（如果使用账号密码 Token 请设置为空 ""）
