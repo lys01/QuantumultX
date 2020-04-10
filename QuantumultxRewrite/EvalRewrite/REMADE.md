@@ -1,11 +1,9 @@
-# 远程京东签到（jd_eval.js）
-$task.fetch({ url: ”https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js“ }).then(response => {eval(response.body);});
-1.设置任务
+https://raw.githubusercontent.com/seamly01/QuantumultX/master/QuantumultxRewrite/EvalRewrite/Eval.conf
 
+1.设置任务
 
 [task_local]
 0 0 * * * eval_script.js
-
 
 2.配置脚本
 
@@ -19,10 +17,6 @@ https://raw.githubusercontent.com/yichahucha/surge/master/sub_script.conf
 
 # jd（Surge）
 # http-response ^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig) requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js
-
-# tb（QuanX）
-# ^http://amdc\.m\.taobao\.com/amdc/mobileDispatch url script-response-body https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js
-# ^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail url script-response-body https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js
 
 [Hostname]
 
