@@ -1,0 +1,5 @@
+hostname=m.ximalaya.com,api-hdcj.9w9.com,
+
+http-request https:\/\/m\.ximalaya\.com\/speed\/task-center\/account\/coin script-path=eval_script.js
+
+http-request ^https:\/\/api-hdcj\.9w9\.com\/v\d\/sign script-path=eval_script.js
