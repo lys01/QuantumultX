@@ -1,12 +1,11 @@
 /*
-
-本脚本仅适用于喜马拉雅极速版签到  无效签到
+本脚本仅适用于喜马拉雅极速版开启宝箱金币  无签到功能
 获取Cookie方法:
-1.将下方[rewrite_local]和[MITM]地址复制的相应的区域
-下，
+1.将下方[rewrite_local]和[MITM]地址复制的相应的区域下
 2.APP登陆账号后，点击右下角'福利'选项,即可获取Cookie.
-
-
+3.宝箱y从0点开始，可每隔一小时开启一次，每天最多5次，金币账户与喜马拉雅标准版不同账户
+4.非专业人士制作，欢迎各位大佬提出宝贵意见和指导
+5.转盘无效
 仅测试Quantumult x，Surge、Loon自行测试
 by Macsuny
 
@@ -29,109 +28,98 @@ QX or Surge [MITM]
 hostname = m.ximalaya.com
 ~~~~~~~~~~~~~~~~
 
-task
-0 0 * * * xmspeed.js
-
 */
 
 const CookieName ='喜马拉雅极速版'
 const CookieKey = 'sy_cookie_xmspeed'
 const sy = init()
 const cookieVal = sy.getdata(CookieKey);
-const signheaderKey = 'sy_signheader_xmspeed'
-const signbodyKey = 'sy_signbody_xmspeed'
-const signheaderVal = sy.getdata(signheaderKey)
-const signbodyVal = `{
- "checkData": "VdcQOtRHeCRyPYfHo4KJQ976ZOIfWG+yHJgJ6PVdNmtx3e+SRCjCKdEGlkJUnSaRonQAfU7Fd3VwX+miT8nNClllvxwEhQC8QVr5Pi295nxW3YIrPJqNfhBbJl3WQq5qcLQeoGmolH/hVqa9TkXJvvsijzESTzeigwXfY17iLWE="
-}`
-
 let isGetCookie = typeof $request !== 'undefined'
-
 if (isGetCookie) {
    GetCookie()
 } else {
    sign()
 }
 function GetCookie() {
-  if ($request.headers) {
-    var CookieValue = $request.headers['Cookie'];
-    
-      const signbodyVal = $request.body
-      if (signbodyVal) sy.setdata(signbodyVal, signbodyKey)
-    
-    if (sy.getdata(CookieKey) != (undefined || null)) {
-      if (sy.getdata(CookieKey) != CookieValue) {
-        var cookie = sy.setdata(CookieValue, CookieKey);
-        if (!cookie) {
-          sy.msg("更新" + CookieName + "Cookie失败‼️", "", "");
-          sy.log(`[${CookieName}] 获取Cookie: 失败`);
-        } else {
-          sy.msg("更新" + CookieName + "Cookie成功 🎉", "", "");
-      sy.log(`[${CookieName}] 获取Cookie: 成功, Cookie: ${CookieValue}`)
-        }
-      }
-    } else {
-      var cookie = sy.setdata(CookieValue, CookieKey);
-      if (!cookie) {
-        sy.msg("首次写入" + CookieName + "Cookie失败‼️", "", "");
-      } else {
-        sy.msg("首次写入" + CookieName + "Cookie成功 🎉", "", "");
-      }
-    }
-  } else {
-    sy.msg("写入" + CookieName + "Cookie失败‼️", "", "配置错误, 无法读取请求头, ");
-  }
+if ($request && $request.method != 'OPTIONS') {
+  const cookieVal = $request.headers['Cookie'];
+  sy.log(`cookieVal:${cookieVal}`)
+  if (cookieVal) sy.setdata(cookieVal, CookieKey)
+  sy.msg(CookieName, `获取Cookie: 成功`, ``)
+  sy.done()
+ }
 }
 
 function sign() {
-      const title = `${CookieName}`
-      let subTitle = ``
-      let detail = ``
-let signurl = {url: 'https://m.ximalaya.com/speed/task-center/check-in/record',
-    	headers: {
-			Cookie: cookieVal
-		}
-} 
-    sy.get(signurl, (error, response, data) => {
-    sy.log(`${CookieName}, data: ${data}`)
-    let result = JSON.parse(data) 
-    if (result.errorCode == -1){
-       subTitle = `签到失败: 配置缺失❌`
-       detail = '说明:请重新获取Cookie'
-      sy.msg(title, subTitle, detail)
-      } else if (result.checkId == 0 ){
-       subTitle = `签到结果: 成功`
-     }
-      else if (result.checkId != 0){
-       subTitle = `签到结果: 已签到`
-     }
-     let cashurl = {url: 'http://m.ximalaya.com/speed/web-earn/account/cash',
-    headers: { Cookie:cookieVal}
-    }        
-    sy.get(cashurl, (error, response, data) => {
-    //sy.log(`${CookieName}, data: ${data}`)
-     let result = JSON.parse(data) 
-     if (result.balance != ""){
-       detail = `现金收益:${result.balance}元💸  `
-      }  
-    
-     let totalurl = {url: 'https://m.ximalaya.com/speed/task-center/account/coin',
-    headers: { Cookie:cookieVal}
+     const title = `${CookieName}`
+   let signurl = {url: 'https://m.ximalaya.com/speed/task-center/config/task-center',
+    headers: {Cookie:cookieVal}
      }        
-    sy.get(totalurl, (error, response, data) => {
-    //sy.log(`${CookieName}, data: ${data}`)
+     sy.get(signurl, (error, response, data) => {
+     sy.log(`${CookieName}, data: ${data}`)
      let result = JSON.parse(data) 
      if (result.total != ""){
-       subTitle += ''
-       detail += `金币收益:${result.total}💰`  
+      //detail += `金币收益:${result.total}💰`  
       }  
+})
+    shareurl = {url: 'https://m.ximalaya.com/speed/web-earn/inspire/lottery/action',
+    	headers: {Cookie:cookieVal},
+     body: `{
+ "sign": "EyiP5CRKRY1/oHgdyzm3SxC2jw+NrghwZG5ND4Z1+ZWVH4ttwx+nBDog+H33Et9sTDR9DxMWxgnmsghCN4MEj8Oniv8USRK2E6Jw6w6GgdOhi7PR/6aqYLQi2iaHFz6feM3skLmMGkvZsv1amzTjjs97faLzgZVT7scElwvoldQ="
+}`
+    } // 手动抓取请求"body"值无效果
+     shareurl.headers['Content-Type'] = 'application/json;charset=utf-8'
+    sy.post(shareurl, (error, response, data) => {
+      sy.log(`${CookieName}, data: ${data}`)
+      let result = JSON.parse(data) 
+      if (result.code == 0){
+       subTitle += `  每日转盘抽奖:${result.data.awardInfo.name} `
+        }
+       })
+     let cashurl = {url: 'http://m.ximalaya.com/speed/web-earn/account/cash',
+     headers: {Cookie:cookieVal}
+    }        
+     sy.get(cashurl, (error, response, data) => {
+     sy.log(`${CookieName}, data: ${data}`)
+     let result = JSON.parse(data) 
+     if (result.balance != ""){
+      detail = `现金收益:${result.balance}元💸   `
+      } 
+     let totalurl = {url: 'https://m.ximalaya.com/speed/task-center/account/coin',
+    headers: {Cookie:cookieVal}
+     }        
+     sy.get(totalurl, (error, response, data) => {
+     sy.log(`${CookieName}, data: ${data}`)
+     let result = JSON.parse(data) 
+     if (result.total != ""){
+      detail += `金币收益:${result.total}💰`  
+      }  
+
+    baoxiangurl = {url: 'https://mobile.ximalaya.com/pizza-category/activity/getAward',
+    headers: {Cookie:cookieVal},
+    body: `activtyId=baoxiangAward`
+    }        
+    sy.post(baoxiangurl, (error, response, data) => {
+     sy.log(`${CookieName}, data: ${data}`)
+     let result = JSON.parse(data) 
+     if (result.ret == 0){
+       subTitle = `开启宝箱成功`
+       detail += `\n本时段开启宝箱成功，${result.awardDesc}`
+      } 
+else if (result.msg == "无法领取，今天领取额度已满"){
+       subTitle = `今日宝箱已开完, 请明天再来`
+       sy.log(`${result.msg}`)
+     }
+    else if (result.ret == 3){
+       subTitle = `本时段宝箱已开启, 请下个时段继续`
+       sy.log(`${result.msg}`)
+     }
       sy.msg(title, subTitle, detail)
     })
+    })
    })
-  })
     sy.done()
   }
-      
 function init() {
   isSurge = () => {
       return undefined === this.$httpClient ? false : true
