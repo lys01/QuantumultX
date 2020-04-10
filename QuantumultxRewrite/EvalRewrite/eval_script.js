@@ -2,7 +2,6 @@ const __conf = String.raw`
 
 [Remote]
 https://raw.githubusercontent.com/seamly01/QuantumultX/master/QuantumultxRewrite/EarymRemote.conf
-https://raw.githubusercontent.com/seamly01/QuantumultX/master/QuantumultxRewrite/GetCookie.conf
 
 [Local]
 
