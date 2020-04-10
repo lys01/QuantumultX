@@ -33,8 +33,8 @@ const __repo = "QuantumultX"
 // GitHub 分支（不指定就使用默认分支）
 const __branch = "master"
 // GitHub 文件路径（没有文件新创建，已有文件覆盖更新，路径为空 "" 不更新）
-const __quanxPath = "QuantumultxRewrite/EvalRewrite/eval.txt"
-const __surgePath = "QuantumultxRewrite/EvalRewrite/eval_surge.txt"
+const __quanxPath = "QuantumultxRewrite/EvalRewrite/Eval.conf"
+const __surgePath = "QuantumultxRewrite/EvalRewrite/SurgeEval.conf"
 // GitHub 更新日志
 const __quanxCommit = "update"
 const __surgeCommit = "update"
