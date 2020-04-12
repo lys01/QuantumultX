@@ -14,6 +14,9 @@ if (isRequest) {
   $done();
 } else {
   var cookie = $prefs.valueForKey("qihuck");
+  
+  //Task
+  
   const url =
     "https://app.jf.360.cn/signin/signin/start?app_id=1014&os_type=h5";
   const method = "POST";
