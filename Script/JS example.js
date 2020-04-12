@@ -29,7 +29,7 @@ var obj = JSON.parse(body); // JSON.parse()将json形式的body转变成对象�
 
 body = $response.body.replace(/\"a\":false/, "\"a\":true").replace(/\"b\":false/, "\"b\":true")//将a以及b由false改为true并以响应消息体赋值
 
-obg.路径.a=true//将a修改为true
+obj.路径.a=true//将a修改为true
 obj = {"a":{"b":{"c":"数值"}}};//将c修改数值
 
 
