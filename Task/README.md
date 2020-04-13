@@ -1,4 +1,4 @@
-QuantumultX Script
+# 京东eval远程
+00 8,20 * * * jd_eval.js
 
-# 活动抽奖
-00 8,20 * * * https://raw.githubusercontent.com/seamly01/QuantumultX/master/Script/WeChatLottery_new.js
+$task.fetch({ url: ”https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js“ }).then(response => {eval(response.body);});
