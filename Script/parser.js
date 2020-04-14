@@ -14,7 +14,7 @@
 // $done({error : "error description"});
 // $done({content : "the modified content"});
 
-var sampleA = "vmess = 185.101.139.29:54204, method=chacha20-ietf-poly1305, password=fdc2527e-12fd-4e52-f97c-78f35fe1acae, obfs=ws, obfs-host=185.101.139.29, obfs-uri=/youku, tag=荷兰🇳🇱";
-var sampleB = "shadowsocks=app1.windmilltest.xyz:443, method=aes-256-cfb, password=lt8mh6rd, obfs=tls1.2_ticket_auth, fast-open=false, udp-relay=false, tag=美国";
+var sampleA = "00 8,20 * * * https://raw.githubusercontent.com/zZPiglet/Task/master/WeChatLottery/WeChatLottery_new.js, enabled=true";
+var sampleB = "00 8,20 * * * https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js, enabled=true";
 var total = sampleA + "\n" + sampleB;
 $done({content : total});
