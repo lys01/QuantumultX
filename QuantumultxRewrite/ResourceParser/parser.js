@@ -14,7 +14,7 @@
 // $done({error : "error description"});
 // $done({content : "the modified content"});
 
-var sampleA = "00 8,20 * * * https://raw.githubusercontent.com/zZPiglet/Task/master/WeChatLottery/WeChatLottery_new.js, enabled=true";
-var sampleB = "00 8,20 * * * https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js, enabled=true";
+var sampleA = "HK";
+var sampleB = "香港";
 var total = sampleA + "\n" + sampleB;
 $done({content : total});
