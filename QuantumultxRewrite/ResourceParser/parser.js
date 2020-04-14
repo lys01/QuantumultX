@@ -18,6 +18,7 @@ var A = "shadowsocks=cn2.flushingx.com:1526, method=rc4-md5, password=7278918662
 var B = "shadowsocks=p5.22332e.com:8333, method=rc4-md5, password=passfw2xs4e!, fast-open=false, udp-relay=false, tag=台湾";
 var C ="shadowsocks=p4.22332e.com:8333, method=rc4-md5, password=passfw2xs4e!, fast-open=false, udp-relay=false, tag=香港";
 
-var total = A + B + C;
+var total = A + "\n" + B;
+
 
 $done({content : total});
