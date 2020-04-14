@@ -1,3 +1,8 @@
+shadowsocks=li887-118.members.linode.com:443, method=rc4-md5, password=2020.04.07, fast-open=false, udp-relay=false, tag=寒梅.us01
+shadowsocks=cn2.flushingx.com:1526, method=rc4-md5, password=7278918662, fast-open=false, udp-relay=false, tag=HK
+shadowsocks=tuiwen.live:502, method=rc4-md5, password=7278918662, fast-open=false, udp-relay=false, tag=寒梅.us02
+shadowsocks=sv4.flushingx.com:502, method=rc4-md5, password=7278918662, fast-open=false, udp-relay=false, tag=寒梅.us
+
 vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIuaXpeacrDMiLA0KICAiYWRkIjogIm1pbGtnb2dvLnh5eiIsDQogICJwb3J0IjogIjQ0MyIsDQogICJpZCI6ICI0OTU0YmY0Yy03MDEzLTExZWEtOGYwNS01NjAwMDJhNDgxZGEiLA0KICAiYWlkIjogIjQ2IiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJtaWxrZ29nby54eXoiLA0KICAicGF0aCI6ICIvazRSaDJTbkovIiwNCiAgInRscyI6ICJ0bHMiDQp9
 vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIuaXpeacrCIsDQogICJhZGQiOiAiYXBwbGVtdXNpY3MudGsiLA0KICAicG9ydCI6ICI0NDMiLA0KICAiaWQiOiAiOTViODA1OGMtNzdhZC0xMWVhLThkZWYtNTYwMDAyYWEzYzM2IiwNCiAgImFpZCI6ICI0NiIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiYXBwbGVtdXNpY3MudGsiLA0KICAicGF0aCI6ICIvNHBIUld5N0MvIiwNCiAgInRscyI6ICJ0bHMiDQp9
 
