@@ -1,0 +1,29 @@
+#From 🐩️哥 (https://raw.githubusercontent.com/Neurogram-R/Surge/master/module/Q-Search.sgmodule)
+#- Safari 内输入 命令 + 空格 + 关键词 快速指定搜索引擎搜索
+#注：先进入设置更改 Safari 默认搜索为 DuckDuckGO
+
+hostname = duckduckgo.com
+
+# key:bd 百度搜索
+# key:gh github搜索
+# key:gm 谷歌图片搜索
+# key:yd 有道词典搜索
+# key:ytb YouTube视频搜索
+# key:ssp 少数派文章搜索
+# key:csdn csdn文章搜索
+# key:zh 知乎搜索
+# key:tb 淘宝搜索
+# key:db 豆瓣搜索
+# key:bli 哔哩哔哩搜索
+^https:\/\/duckduckgo.com\/\?q=bd\+([^&]+).+ https://www.baidu.com/s?wd=$1 302
+^https:\/\/duckduckgo.com\/\?q=gh\+([^&]+).+ https://github.com/search?q=$1 302
+^https:\/\/duckduckgo.com\/\?q=gm\+([^&]+).+ https://www.google.com/search?&tbm=isch&q=$1 302
+^https:\/\/duckduckgo.com\/\?q=yd\+([^&]+).+ http://dict.youdao.com/search?q=$1 302
+^https:\/\/duckduckgo.com\/\?q=ytb\+([^&]+).+ https://www.youtube.com/results?search_query=$1 302
+^https:\/\/duckduckgo.com\/\?q=ssp\+([^&]+).+ https://sspai.com/search/post/$1 302
+^https:\/\/duckduckgo.com\/\?q=csdn\+([^&]+).+ https://so.csdn.net/so/search/s.do?q=$1&t=&u= 302
+^https:\/\/duckduckgo.com\/\?q=zh\+([^&]+).+ http://www.zhihu.com/search?q=$1 302
+^https:\/\/duckduckgo.com\/\?q=tb\+([^&]+).+ http://s.taobao.com/search?q=$1 302
+^https:\/\/duckduckgo.com\/\?q=([^&]+).+ https://www.google.com/search?q=$1 302
+^https:\/\/duckduckgo.com\/\?q=db\([^&]+).+ https://www.douban.com/search?q=$1 302
+^https:\/\/duckduckgo.com\/\?q=bli\([^&]+).+ https://search.bilibili.com/all?keyword=$1&from_source=banner_search 302
