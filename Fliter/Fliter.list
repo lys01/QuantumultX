@@ -1,8 +1,9 @@
 # App Store
 ;host, p14-buy.itunes.apple.com, proxy
 # 屏蔽系统更新
-host, mesu.apple.com, Advertising
-host, gdmf.apple.com, Advertising
+host, mesu.apple.com, reject
+host, gdmf.apple.com, reject
+host, updates-http.cdn-apple.com, reject
 # 迅雷版权问题
 ;host, hub5idx.v6.shub.sandai.net, reject
 ;host, hub5emu.v6.shub.sandai.net, reject
