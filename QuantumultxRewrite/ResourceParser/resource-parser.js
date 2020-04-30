@@ -1,9 +1,11 @@
 /** 
-#Quantumult X 资源解析器 (2020-04-28: 13:33)
+#Quantumult X 资源解析器 (2020-04-29: 21:33)
 
 本资源解析器作者: Shawn(@XIAO_KOP), 有问题请反馈: @Shawn_KOP_bot
 
-功能: 将节点订阅解析成 Quantumult X 引用片段, 并提供下列可选参数 (已支持 V2RayN/SSR/SS/Trojan/QuanX 订阅)
+主要功能: 将节点订阅解析成 Quantumult X 引用片段, 并提供下列可选参数 (已支持 V2RayN/SSR/SS/Trojan/QuanX 订阅)；
+
+附赠功能：rewrite 复写引用过滤
 
 0️⃣ 在订阅链接后加入 "#" 符号后再加参数, 不同参数间请使用 "&" 来连接, 如: "#in=香港+台湾&emoji=1&tfo=1"
 
@@ -16,6 +18,8 @@
 4️⃣ rename 重命名, rename=旧名@新名, 以及 "前缀@", "@后缀", 用 "+" 连接, 如 "rename=香港@HK+[SS]@+@[1X]"
 
 5️⃣ info=1, 用于打开转换解析器的提示通知 (默认关闭)
+
+6⃣️ 支持过滤主机名跟重写规则，用于 rewrite 引用模块，参数一样为 "out=para"
  */
 
 
@@ -55,13 +59,19 @@ if(type0=="Vmess"){
 }else if(type0=="SS"){
 	total=SS2QX(content0,Pudp0,Ptfo0);
 	flag=1
-}else{
+}else if(type0=="rewrite"){
+	flag=2;
+	content0=content0.split("\n");
+	total=Rewrite_Filter(content0,Pout0);
+	}else {
 	$notify("👻该解析器暂未支持您的订阅格式","😭太难写了", "stay tuned");
 	flag=0;
 	$done({content : content0});
 }
-	
-if(flag==1){
+
+if(flag==2){
+	$done({content:total.join("\n")});
+}else if(flag==1){
 	if(Pin0||Pout0){
 		if(Pinfo!=0){
 		$notify("👥 开始转换节点，类型："+type0,"🐶 您已添加节点筛选参数，如下","👍️ 保留的关键字："+Pin0+"\n👎️ 排除的关键字："+Pout0);}
@@ -98,8 +108,56 @@ function Type_Check(subs){
 		type="Trojan"
 	} else if (subs.indexOf("c3M6Ly")!= -1){
 		type="SS"
+	} else if(subs.indexOf("hostname")!=-1){
+		type="rewrite"
 	}
 	return type
+}
+
+function Trim(item){
+	return item.trim()
+	}
+//删除 rewrite 引用中的某部分
+function Rewrite_Filter(subs,Pout){
+	cnt=subs;
+	nlist=[];
+	drewrite=[];
+	Pout=Pout.map(Trim);
+	if(Pout!="" && Pout!=null){
+	for(var i=0;i<cnt.length;i++){
+		var cc=cnt[i];
+		if(cc.trim()!=""){
+		const exclude = (item) => cc.indexOf(item)!=-1;
+		if(Pout.some(exclude)){
+			if(cc.indexOf("hostname")!=-1 && cc.indexOf("=")!=-1){ //hostname  部分
+				nname=[];//保留项
+				dname=[];//删除项目
+				hname=cc.split("=")[1].split(",");
+				for(var j=0;j<hname.length;j++){
+					dd=hname[j]
+					const excludehn = (item) => dd.indexOf(item)!=-1;
+					if(!Pout.some(excludehn)){
+						nname.push(hname[j])	
+					}else{dname.push(hname[j])}
+				} //for j
+				hname="hostname="+nname.join(", ");
+				//console.log(hname)
+				nlist.push(hname)
+				if(dname.length>0){$notify("🤖 您添加的过滤关键词为："+Pout0.join(", "),"☠️ 主机名 hostname 中已为您删除以下"+dname.length+"个匹配项",dname.join(",") )}
+				}  // if cc -hostname
+				else{
+					drewrite.push(cc)
+				}
+		}else{ //if Pout.some
+				nlist.push(cc)
+					} //else
+		}
+	}//cnt for
+	if(drewrite.length>0){$notify("🤖 您添加的过滤关键词为："+Pout0.join(", "),"☠️ 复写 rewrite 中已为您删除以下"+drewrite.length+"个匹配项",drewrite.join("\n") )};
+	return nlist
+	} else{ // Pout if
+		return cnt;}
+	
 }
 
 //V2RayN 订阅转换成 QUANX 格式
