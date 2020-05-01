@@ -1,5 +1,5 @@
 /* 
-# 韩剧tv
+# 韩剧tv超清
 ^http:\/\/api\.hanju\.koudaibaobao|.com\/api\/series\/rslvV4 url script-response-body https://raw.githubusercontent.com/seamly01/QuantumultX/master/Script/HanjuTV.js
 
 hostname = api.hanju.koudaibaobao.com
