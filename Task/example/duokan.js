@@ -30,17 +30,17 @@ const myRequest = {
     body: body
 };
 
-$task.fetch(myRequest ).then(response => {
-    var body = JSON.parse(response.body);
-    console.log(response.body);
-    var seamly =body.pointCount
-    // response.statusCode, response.headers, response.body
-    if (body.success==true){
-        $notify("多看阅读","签到: 成功",seamly)
-    }else{
-        $notify("多看阅读","签到: 重复",seamly)// Success!
+$task.fetch(myRequest).then(
+    response => {
+      var msg = JSON.parse(response.body).success;
+      console.log(response.body);
+    var seamly =JSON.parse(response.body).pointCount
+      if (msg == "1") {
+        var msg = "签到:成功";
+      }
+      $notify("多看阅读", msg, seamly);
+    },
+    reason => {
+      $notify("签到失败", "", JSON.parse(reason.error).msg); 
     }
-}, reason => {
-    // reason.error
-    $notify("多看阅读. Interface error‼️‼️‼️", "", reason.error)
-}); // Error!
+  );
