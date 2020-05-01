@@ -1,9 +1,3 @@
-
-/**
- * @fileoverview Template to compose HTTP reqeuest.
- * 
- */
-
 const url = 'http://api.hanju.koudaibaobao.com/api/userPoint/checkin?_ts=1588258534005';
 const method = 'GET';
 const headers = {
@@ -35,12 +29,17 @@ $task.fetch(myRequest).then(
       var msg = JSON.parse(response.body).success;
       console.log(response.body);
     var seamly =JSON.parse(response.body).pointCount
-      if (msg == "1") {
-        var msg = "签到:成功";
+      if (msg == true) {
+        var msg = "签到结果: 成功";
+      
+      $notify("韩剧TV", msg, "积分+: "+seamly)
+      }else{
+        var msg = "签到结果: 重复";
       }
-      $notify("韩剧TV", msg, seamly);
+      $notify("韩剧TV", msg, "积分+: "+seamly);
+
     },
     reason => {
-      $notify("签到失败", "", JSON.parse(reason.error).msg); 
+      $notify("签到失败", "", JSON.parse(reason.error).msg);
     }
   );
