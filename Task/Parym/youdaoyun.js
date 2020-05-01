@@ -19,15 +19,16 @@ const myRequest = {
     body: body
 };
 
-$task.fetch(myRequest ).then(response => {
+$task.fetch(myRequest).then(response => {
     var body = JSON.parse(response.body);
     console.log(response.body);
     var seamly =body.success
+    var seamly1=body.space
     // response.statusCode, response.headers, response.body
     if (body.success==1){
-        $notify("有道云笔记","签到: 成功",seamly)
+        $notify("有道云笔记","签到: 成功",seamly1)
     }else{
-        $notify("有道云笔记","签到: 重复"," ")// Success!
+        $notify("有道云笔记","签到: 重复","有道云空间总额: "+seamly1)// Success!
     }
 }, reason => {
     // reason.error
