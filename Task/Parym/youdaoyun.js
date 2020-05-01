@@ -25,8 +25,8 @@ $task.fetch(myRequest).then(response => {
     var seamly =body.success
     var seamly1=body.space
     // response.statusCode, response.headers, response.body
-    if (body.success==1){
-        $notify("有道云笔记","签到: 成功",seamly1)
+    if (seamly==1){
+        $notify("有道云笔记","签到: 成功 增加"+seamly,"有道云空间总额: "+seamly1)
     }else{
         $notify("有道云笔记","签到: 重复","有道云空间总额: "+seamly1)// Success!
     }
