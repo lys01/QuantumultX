@@ -38,7 +38,7 @@ $task.fetch(myRequest).then(
       if (msg == "1") {
         var msg = "签到:成功";
       }
-      $notify("多看阅读", msg, seamly);
+      $notify("韩剧TV", msg, seamly);
     },
     reason => {
       $notify("签到失败", "", JSON.parse(reason.error).msg); 
