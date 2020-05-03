@@ -1,4 +1,4 @@
-const url = 'http://api.hanju.koudaibaobao.com/api/userPoint/checkin?_ts=1588258534005';
+const url = 'http://api.hanju.koudaibaobao.com/api/userPoint/checkin?';
 const method = 'GET';
 const headers = {
 'uk' : '2Q/904oS/cUmCSsxl4kYgqK09TZ5uAspSVEsECbpBj0=',
@@ -31,7 +31,6 @@ $task.fetch(myRequest).then(
     var seamly =JSON.parse(response.body).pointCount
       if (msg == true) {
         var msg = "签到结果: 成功";
-      
       $notify("韩剧TV", msg, "积分+: "+seamly)
       }else{
         var msg = "签到结果: 重复";
