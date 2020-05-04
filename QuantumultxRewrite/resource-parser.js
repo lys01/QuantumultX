@@ -1,24 +1,25 @@
 /** 
-#Quantumult X 资源解析器 (2020-05-02: 12:53)
+#Quantumult X 资源解析器 (2020-05-03: 22:33)
 
 本资源解析器作者: Shawn(@XIAO_KOP), 有问题请反馈: @Shawn_KOP_bot
 
-主要功能: 将节点订阅解析成 Quantumult X 引用片段, 并提供下列可选参数 (已支持 V2RayN/SSR/SS/Trojan/QuanX 订阅)；
-附赠功能：rewrite 复写引用/ filter 分流 过滤
+主要功能: 将各类服务器订阅解析成 Quantumult X 引用片段(已支持 V2RayN/SSR/SS/Trojan/QuanX(list)/Surge3⬆️(conf&list)格式)，并提供下列可选参数；
 
-0️⃣ 在订阅链接后加入 "#" 符号后再加参数, 不同参数间请使用 "&" 来连接, 如: "#in=香港+台湾&emoji=1&tfo=1"
+附加功能: rewrite 复写 /filter 分流 过滤, 可用于解决无法单独禁用远程 rewrite 中某(几)条 rewrite/hostname/filter 的问题
+
+0️⃣ 请在订阅链接后加入 "#" 符号后再加参数, 不同参数间请使用 "&" 来连接, 如: "#in=香港+台湾&emoji=1&tfo=1"
 
 1️⃣ 筛选参数 in, out, 分别为保留与排除, 多参数用 "+" 连接, 可直接用中文 (如 "in=香港+台湾&out=BGP" )
 
 2️⃣ emoji 参数为 emoji=1,2 或 -1, 为添加或删除节点名中的 emoji 旗帜 (国行设备请用 emoji=2 )
 
-3️⃣ udp=1, tfo=1 参数开启 udp-relay 及 fast-open (默认关闭, 且此参数对源类型为 QuanX 的链接无效)
+3️⃣ udp=1, tfo=1 参数开启 udp-relay 及 fast-open (默认关闭, 且此参数对源类型为 QuanX/Surge 的链接无效)
 
 4️⃣ rename 重命名, rename=旧名@新名, 以及 "前缀@", "@后缀", 用 "+" 连接, 如 "rename=香港@HK+[SS]@+@[1X]"
 
-5️⃣ rewrite(复写)/filter(分流) 引用的筛选，参数为 "out=xxx", 分流规则额外支持 "policy=xx" 参数, 可用于直接指定策略组，或者为 Surge 格式的 rule-set 生成策略组(默认"Shawn"策略组)
+5⃣️ rewrite(复写)/filter(分流) 引用的筛选，参数为 "out=xxx", 分流规则额外支持 "policy=xx" 参数, 可用于直接指定策略组，或者为 Surge 格式的 rule-set 生成策略组(默认"Shawn"策略组)
 
-6️⃣ info=1, 用于打开服务器类型下转换解析器的提示通知 (默认关闭), rewrite/filter 类型则强制在有 out 参数时开启通知，以免规则误删除
+6⃣️ info=1, 用于打开服务器类型下转换解析器的提示通知 (默认关闭), rewrite/filter 类型则会强制在有 out 参数时开启通知提示，以免规则误删除
 
  */
 
@@ -30,6 +31,7 @@
 2️⃣ 假设你想要保留的参数为 in=tls+ss, 想要过滤的参数为 out=http+2, 请注意下面订阅链接后一定要加 ”#“ 符号
 3️⃣ 则填入 Quanx 节点引用的的总链接为  https://raw.githubusercontent.com/crossutility/Quantumult-X/master/server-complete.txt#in=tls+ss&out=http+2
 4️⃣ 填入上述链接并打开的资源解析器开关
+5⃣️ 因为 rewrite/filter 的 UI 中暂时没有提供解析器开关，需要去配置文件中自行添加参数开启(opt-parser=true)
  */
 
 var content0=$resource.content;
@@ -60,6 +62,9 @@ if(type0=="Vmess"){
 }else if(type0=="SS"){
 	total=SS2QX(content0,Pudp0,Ptfo0);
 	flag=1
+}else if(type0=="Surge"){
+	total=Surge2QX(content0);
+	flag=1;
 }else if(type0=="rewrite"){
 	flag=2;
 	content0=content0.split("\n");
@@ -112,7 +117,9 @@ function Type_Check(subs){
 		type="Rule";
 	} else if (subs.indexOf("dm1lc3M6Ly")!= -1){
 		type="Vmess"
-	} else if (subs.indexOf("tag")!=-1){
+	}  else if(subs.indexOf("[Proxy]")!=-1){
+			type="Surge";
+	}else if (subs.indexOf("tag")!=-1){
 		type="QuanX"
 	} else if (subs.indexOf("c3NyOi8v")!= -1){
 		type="SSR"
@@ -122,7 +129,9 @@ function Type_Check(subs){
 		type="SS"
 	} else if(subs.indexOf("hostname")!=-1){
 		type="rewrite"
-	}
+	} else if(subs.indexOf("ss"||"vmess"||"trojan"||"http")!=-1){
+		type="Surge"
+		}
 	return type
 }
 
@@ -467,6 +476,127 @@ function emoji_handle(servers,Pemoji){
 	}
 	return nlist
 }
+
+//Surge2QX 转换主函数
+function Surge2QX(conf){
+	var QXlist=conf.split("\n").map(isSurge).filter(Boolean)
+	var Nlist=[]
+	for(i=0;i<QXlist.length;i++){
+		var cnt=QXlist[i];
+		//console.log(cnt)
+		if(cnt.indexOf("trojan")!=-1){
+			Nlist.push(Strojan2QX(cnt))
+			}else if(cnt.split("=")[1].split(",")[0].indexOf("http")!=-1){
+				Nlist.push(Shttp2QX(cnt))
+			}else if(cnt.split("=")[1].split(",")[0].indexOf("vmess")!=-1){
+				Nlist.push(SVmess2QX(cnt))
+			}else if(cnt.split("=")[1].split(",")[0].indexOf("ss")!=-1){
+				Nlist.push(SSS2QX(cnt))
+			}
+	}
+	return(Nlist)
+	//console.log(Nlist)
+	}
+	
+// surge 中的 SS 类型
+function SSS2QX(content){
+	var cnt=content;
+	var tag="tag="+cnt.split("=")[0].trim();
+	var ipport=cnt.split(",")[1].trim()+":"+cnt.split(",")[2].trim();
+	var pmtd="method="+cnt.split("encrypt-method")[1].split(",")[0].split("=")[1];
+	var pwd="password="+cnt.split("password")[1].split(",")[0].split("=")[1];
+	if(cnt.indexOf("obfs")!=-1){
+			pobfs="obfs="+cnt.replace(/obfs-host/,"").split("obfs")[1].split(",")[0].split("=")[1]
+		}else {pobfs=""}
+	var phost=cnt.indexOf("obfs-host")!=-1? "obfs-host"+cnt.split("obfs-host")[1].split(",")[0].trim():"";
+	if(phost!=""){
+			pobfs=pobfs+", "+phost
+		}
+	var ptfo= paraCheck(cnt,"tfo")=="true"? "fast-open=true":"fast-open=false";
+	var pudp= paraCheck(cnt,"udp")=="true"? "udp-relay=true":"udp-relay=false";
+	var nserver= pobfs!=""? "shadowsocks= "+[ipport,pmtd,pwd,pobfs,ptfo,pudp,tag].join(", "):"shadowsocks= "+[ipport,pmtd,pwd,ptfo,pudp,tag].join(", ");
+	return nserver
+}
+
+// surge 中的 Vmess 类型
+function SVmess2QX(content){
+	var cnt=content;
+	var tag="tag="+cnt.split("=")[0].trim();
+	var ipport=cnt.split(",")[1].trim()+":"+cnt.split(",")[2].trim();
+	var puname=cnt.indexOf("username")!=-1? "password="+cnt.split("username")[1].split(",")[0].split("=")[1].trim():"";
+	var pmtd="method=aes-128-gcm";
+	var ptls13=paraCheck(cnt,"tls13")=="true"? "tls13=true":"tls13=false";
+	var pverify=paraCheck(cnt,"skip-cert-verify")=="true"? "tls-verification=false":"tls-verification=true";
+	if(paraCheck(cnt.replace(/tls13/,""),"tls")=="true" && paraCheck(cnt.replace(/ws-header/,""),"ws")=="true"){
+			pobfs="obfs=wss"+", "+ptls13+", "+pverify
+		}else if(paraCheck(cnt.replace(/ws-header/,""),"ws")=="true"){
+					pobfs="obfs=ws"
+		}else if(paraCheck(cnt.replace(/tls13/,""),"tls")!="false"){
+			pobfs="obfs=over-tls"+", "+ptls13+", "+pverify
+		}else if(paraCheck(cnt.replace(/ws-header/,""),"ws")=="false"){
+			pobfs=""
+		}
+	var puri=paraCheck(cnt,"ws-path")!="false"? "obfs-uri="+cnt.split("ws-path")[1].split(",")[0].split("=")[1].trim():"obfs-uri=/"
+	var phost=paraCheck(cnt,"ws-headers")!="false"? "obfs-host="+cnt.split("ws-headers")[1].split(",")[0].split("=")[1].split("Host:")[1].trim():"";
+	if(pobfs.indexOf("ws"||"wss")!=-1){
+		if(phost!=""){
+			pobfs=pobfs+", "+puri+", "+phost
+		}else {pobfs=pobfs+", "+puri}
+	}
+	var ptfo= paraCheck(cnt,"tfo")=="true"? "fast-open=true":"fast-open=false";
+	var nserver= pobfs!=""? "vmess= "+[ipport,puname,pmtd,pobfs,ptfo,tag].join(", "):"vmess= "+[ipport,puname,pmtd,ptfo,tag].join(", ");
+	return nserver
+}
+
+// 用于过滤非节点部分（比如整份配置中其它内容）
+function isSurge(content){
+	if(content.indexOf("=")!=-1){
+		cnt=content.split("=")[1].split(",")[0].trim()
+		if(cnt=="http"||cnt=="ss"||cnt=="trojan"||cnt=="vmess"){
+			return content
+		}
+	}
+}
+// 用于参数检查
+function paraCheck(content, para){
+	if(content.indexOf(para)==-1){
+		return false
+	} else{
+		return content.split(para)[1].split(",")[0].split("=")[1].trim()
+	}
+}
+//surge中 trojan 类型转换
+function Strojan2QX(content){
+	var cnt=content;
+	var tag="tag="+cnt.split("=")[0].trim();
+	var ipport=cnt.split(",")[1].trim()+":"+cnt.split(",")[2].trim();
+	var pwd="password="+cnt.split("password")[1].split(",")[0].split("=")[1].trim();
+	var ptls="over-tls=true";
+	var ptfo= paraCheck(cnt,"tfo")=="true"? "fast-open=true":"fast-open=false";
+	var pverify=paraCheck(cnt,"skip-cert-verify")=="true"? "tls-verification=false":"tls-verification=true";
+	var ptls13=paraCheck(cnt,"tls13")=="true"? "tls13=true":"tls13=false";
+	var nserver="trojan= "+[ipport,pwd,ptls,ptfo,ptls13,pverify,tag].join(", ");
+	return nserver
+	//console.log(nserver)
+}
+// surge 中的 http 类型
+function Shttp2QX(content){
+	var cnt=content;
+	var tag="tag="+cnt.split("=")[0].trim();
+	var ipport=cnt.split(",")[1].trim()+":"+cnt.split(",")[2].trim();
+	var puname=cnt.indexOf("username")!=-1? "username="+cnt.split("username")[1].split(",")[0].split("=")[1].trim():"";
+	var pwd=cnt.indexOf("password")!=-1? "password="+cnt.split("password")[1].split(",")[0].split("=")[1].trim():"";
+	var ptls=cnt.split("=")[1].split(",")[0].trim()=="https"? "over-tls=true":"over-tls=false";
+	var ptfo= paraCheck(cnt,"tfo")=="true"? "fast-open=true":"fast-open=false";
+	if(ptls=="over-tls=true"){
+		var pverify=paraCheck(cnt,"skip-cert-verify")=="true"? "tls-verification=false":"tls-verification=true";
+		var ptls13=paraCheck(cnt,"tls13")=="true"? "tls13=true":"tls13=false";
+		ptls=ptls+", "+pverify+", "+ptls13
+	}
+	var nserver= puname!=""? "http= "+[ipport,puname,pwd,ptls,ptfo,tag].join(", "):"http= "+[ipport,ptls,ptfo,tag].join(", ");
+	return nserver
+}
+
 
 // Base64, adapted from internet : https://www.jianshu.com/p/54084db83d70
 function Base64(){
