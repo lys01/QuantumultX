@@ -1,6 +1,4 @@
 const url = 'http://api.hanju.koudaibaobao.com/api/userPoint/checkin?';
-const url1 = 'http://api.hanju.koudaibaobao.com/api/userPoint/dlaunch?'
-const url2 = 'http://api.hanju.koudaibaobao.com/api/userPoint/infoV2?';
 const method = 'GET';
 const headers = {
 'uk' : '2Q/904oS/cUmCSsxl4kYgqK09TZ5uAspSVEsECbpBj0=',
@@ -25,31 +23,19 @@ const myRequest = {
     headers: headers,
     body: body
 };
-const myRequest1 = {
-    url: url1,
-    method: method,
-    headers: headers,
-    body: body
-};
-const myRequest2 = {
-    url: url2,
-    method: method,
-    headers: headers,
-    body: body
-};
 
-$task.fetch(myRequest2).then(
+$task.fetch(myRequest).then(
     response => {
-      var msg = JSON.parse(response.body).msg;
+      var msg = JSON.parse(response.body).success;
       console.log(response.body);
-    var seamly =JSON.parse(response.body).pointBalance
+    var seamly =JSON.parse(response.body).pointCount
       if (msg == true) {
         var msg = "签到结果: 成功";
-      $notify("韩剧TV", msg, "积分总额+:  "+seamly)
+      $notify("韩剧TV", msg, "积分+: "+seamly)
       }else{
         var msg = "签到结果: 重复";
       }
-      $notify("韩剧TV", msg, "积分总额+:  "+seamly);
+      $notify("韩剧TV", msg, "积分+: "+seamly);
 
     },
     reason => {
