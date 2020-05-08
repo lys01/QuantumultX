@@ -25,7 +25,7 @@ const myRequest = {
     body: body
 };
 const myRequest1 = {
-    url: url,
+    url: url1,
     method: method,
     headers: headers,
     body: body
