@@ -1,4 +1,4 @@
-const url = 'http://api.hanju.koudaibaobao.com/api/userPoint/checkin?';
+const url = 'http://api.hanju.koudaibaobao.com/api/userPoint/infoV2?_ts=1589213905755';
 const url1 = 'http://api.hanju.koudaibaobao.com/api/userPoint/dlaunch?';
 const method = 'GET';
 const headers = {
@@ -6,7 +6,7 @@ const headers = {
 'auth-uid' : '26913895',
 'Connection' : 'keep-alive',
 'Accept-Encoding' : 'gzip, deflate',
-'auth-token' : '36667eef9385428184fc146593a33805',
+'auth-token' : 'a1149e0b2cb1e7f861de7df8909704ce',
 'vc' : 'i_5013',
 'vn' : '5.0.1',
 'User-Agent' : 'HanjuTV/5.0.1 (iPhone; iOS 13.4.1; Scale/2.00)',
@@ -14,7 +14,7 @@ const headers = {
 'Host' : 'api.hanju.koudaibaobao.com',
 'Accept-Language' : 'zh-Hans-CN;q=1',
 'Accept' : '*/*',
-'sign' : 'nCK7pRSPByBEUc4TA9OJH5XjeKtsHcRmIcFUbvsg0jP6BqLzX8zdtp9erbU4a6GFY/fzZGm9ytcKXIlIdvElWC32nWbBuUhhduALqn93HUwp3rVOgJd3hSmIBW/PxLctvmBn6VrxiVm+QnEKFxETD38Ft8HqwM0KuSNIzILWWR9Q2THAykq/UyTffWi+EZRVsVLdsfa7RJ2NNZMKMkqNA8v56CTsC4SXUEtlA16WuGLfe8ZIYc/6cKzrvWIDNRqWzStRwzdmXTqAh4KbSg14S+9O///mAq3TocogGKVfTf0TJJzysEZ+5k2hewLZmNDk6smJFPpURwOBQyX1TycoEqp5KnO5/ZK6UosCPgEQJUhqbA39hoWvupqz1g51cVl69OmnodWlK159DLtEzJ6qYr06Kn8z1D5N+ymkVC3f8N+XPkODO33B9yFysULMAbRcJnTUyjC4sVE59UzNXu49yhgiM7piVmTjuioZV7gnIeOk1uU+k/GmvdXz+2i2jfEKwnxQ5Lf2xdTe4Ncmni4IpTF0G/dV1lfXNot7bb/Qce/67mNd3zYvGxMqQOTz+tB9'
+'sign' : 'nCK7pRSPByBEUc4TA9OJHzIxD+ou4xoXDMdTUomMzMHfmp1rAKfNGnX5Hf8xhxciXtUEzrNx8uvkybqB/H15xx1ii49tjn1FgQROjnoUZijNhEbWz75EZhLObWCpNMxsPuIL8ApQfkAkOW6mji5XvMcEcWeZhoz+OUllkyJtm9nN0HPyOjneVRSI/UvVFQFGJNUeFdUwBnYq0nf1yghkHZb7ugG46JLq0Yvqd9NwAzA+/Hvcw+WwUzovUeIOvEhfs5/sdVMoSkLBYhlldXTkST2mCtLkQGF4I4pRs1kOajhY/cifn9KLBTjDZsLxaW3SSJyqjP01uVHqPB1qQBEnho08c5wN7fsiYSLa/yF7xyxBH+kYI4wNd66QjKxHwHJguoW4UfuSS7pfr2git/YNQeVk6K86DubvuLNurZqx7CS4vWwgN3zQAluRu+IFg2vYPtFO9u4CQymNRTMfQHKVA2hfaESPfZK48HEZCJJlF4Hlxkxh81fXbht6ymXTIun/8QbWkJG2tElAwOcJgsDc2/HZtmI+WGBEKD/ePmlY5Wclqp6n6bH2er+C+vHEMkc7'
 };
 const body = '';
 
