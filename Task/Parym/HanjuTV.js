@@ -1,5 +1,4 @@
 const url = 'http://api.hanju.koudaibaobao.com/api/userPoint/checkin?';
-const url1 = 'http://api.hanju.koudaibaobao.com/api/userPoint/dlaunch?';
 const method = 'GET';
 const headers = {
 'uk' : '2Q/904oS/cUmCSsxl4kYgqK09TZ5uAspSVEsECbpBj0=',
@@ -20,12 +19,6 @@ const body = '';
 
 const myRequest = {
     url: url,
-    method: method,
-    headers: headers,
-    body: body
-};
-const myRequest1 = {
-    url: url1,
     method: method,
     headers: headers,
     body: body
