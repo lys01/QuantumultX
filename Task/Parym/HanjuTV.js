@@ -42,7 +42,7 @@ $task.fetch(myRequest).then(
       }else{
         var msg = "签到结果: 重复";
       }
-      $notify("韩剧TV", msg, "积分总额+: "+seamly);
+      $notify("韩剧TV", msg, "积分总额: "+seamly);
 
     },
     reason => {
