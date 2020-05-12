@@ -35,14 +35,14 @@ $task.fetch(myRequest).then(
     response => {
       var msg = JSON.parse(response.body).success;
       console.log(response.body);
-    var seamly =JSON.parse(response.body).pointCount
+    var seamly =JSON.parse(response.body).pointBalance
       if (msg == true) {
         var msg = "签到结果: 成功";
-      $notify("韩剧TV", msg, "积分+: "+seamly)
+      $notify("韩剧TV", msg, "积分总额: "+seamly)
       }else{
         var msg = "签到结果: 重复";
       }
-      $notify("韩剧TV", msg, "积分+: "+seamly);
+      $notify("韩剧TV", msg, "积分总额+: "+seamly);
 
     },
     reason => {
