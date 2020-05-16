@@ -1,7 +1,9 @@
 
 /**
- * @fileoverview Template to compose HTTP reqeuest.
- * 
+ 
+ * 取消跳过Quantumult X的Rewrite模块添加
+ opts: {"hints", false}
+ 
  */
 
 const url = `http://api.hanju.koudaibaobao.com/api/userPoint/checkin?_ts=1589213906007`;
