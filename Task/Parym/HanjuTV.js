@@ -58,15 +58,15 @@ const headers = {
 'auth-uid' : `26913895`,
 'Connection' : `keep-alive`,
 'Accept-Encoding' : `gzip, deflate`,
-'auth-token' : `a1149e0b2cb1e7f861de7df8909704ce`,
+'auth-token' : `bdd7db97210e83283fee989018c61dbb`,
 'vc' : `i_5013`,
 'vn' : `5.0.1`,
-'User-Agent' : `HanjuTV/5.0.1 (iPhone; iOS 13.4.1; Scale/2.00)`,
+'User-Agent' : `HanjuTV/5.0.1 (iPhone; iOS 13.5; Scale/2.00)`,
 'app' : `hj`,
 'Host' : `api.hanju.koudaibaobao.com`,
 'Accept-Language' : `zh-Hans-CN;q=1`,
 'Accept' : `*/*`,
-'sign' : `nCK7pRSPByBEUc4TA9OJHzIxD+ou4xoXDMdTUomMzMHfmp1rAKfNGnX5Hf8xhxciXtUEzrNx8uvkybqB/H15x/IYzs9p91FFe7fU0MRcq9n4Kh73K8OS39Nux4TSAbwYsCcTMOxrKILMUq1ljeP8y+X+oXtQmeHOqOmOCI1Pw4oMw13UriPAnlHyn+5qv8NTUI0cxxar8L8C5nVRvEwcSOQaRoisLVE4YLXaGjF0bTFHBNBWSTbRlcc27Rvd/Hke7qGh4ePyHCjp5YoHh7/I0ziyubn57XCrddC/Ul8eP7byKXPvLN1jGPCUcwcw0Czm7e7sEd3ow4vzF3WM6yt7ccIbtaHAi179rQ20GnxMTb4yWIlGMNf74+vyh2VoL1UuaAHwt0EiwqNB3lBP+QMmptPeRzTStOaMYxoHtfqsGhdX7yuAL54Vh8/L9VTh2gEp0YuaSt46pyrTaNM8zndsEu4ZHrleUcirPWGGHPPj2xW1nWLc0AWOU9xLob5iCY+QFYFJ7TLsd+MQfVDnfAumDTa3nRXjptmUvuC2gwxJjykiz1zFyJJPMciQXhk1r3Gw`
+'sign' : `nCK7pRSPByBEUc4TA9OJHxbRz3z6N/L4I/KrIK0yGSXIJdhGnMhdRfLDsi0vbqao6EvrxvvnqwfYefeSzs0hjznVQeRVRbS9IrZE3xUnNLx/yTugywfKBSLhO+e1IsSZjjN9Vwc2GA9hnN8caE+2Yf2Hl1WNKWe+emsicLTgxgy6fTwE4daQznPF70HXwquPDiN3i242nHQVrhMsYgPd/fn7UVXtlqgYcK773DXhEGip/i676ke4yzFcWPLIAOqKEAmQezo4p+PlD9QRyxy28KBs/AEBB9nt4Q5EhUGlToyE7iuZ0e+F4leU0tTximoJoEM+H5veIhYgX12MAVgZj0T4K5qPsheYoQ7QZkYNwTQrURY18tBwYHe/Y+4VNkVNrote9Ug7SZrOOn+OLqQErPnqGJxW+xFG82yJN99Jpjb1Ucc8PZH8jbE38wwqKSPWgvoJ+mxlY0PXCZQ6XPydhs4yOcHuugoLGprhMJctSJG90PCveCq48fWKx5SXmqqqPMc91/pA/2fqh6N2YW4g+HIBR1wMbuJs3wlkJaWJSEf8ONLlnsBIYIZnuXHG17QV`
 };
 const body = ``;
 
@@ -76,7 +76,6 @@ const myRequest = {
     headers: headers,
     body: body
 };
-
 
 
 $task.fetch(myRequest).then(
