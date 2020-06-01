@@ -1,11 +1,11 @@
 /** 
-# Quantumult X 资源解析器 (2020-05-29: 20:59 )
+# Quantumult X 资源解析器 (2020-06-01: 10:59 )
 
 解析器作者: Shawn(请勿私聊问怎么用)
 有bug请反馈: @Shawn_KOP_bot
 更新请关注tg频道: https://t.me/QuanX_API
 
-主要功能: 将各类服务器订阅解析成 QuantumultX 格式引用(支持 V2RayN/SSR/SS/Trojan/QuanX(conf&list)/Surge(conf&list)格式)，并提供 1⃣️ 中的可选参数；
+主要功能: 将各类服务器订阅解析成 QuantumultX 格式引用(支持 V2RayN/SSR/SS/Trojan/QuanX(conf&list)/Surge(conf&list)/https(仅部分格式) 订阅)，并提供 1⃣️ 中的可选参数；
 
 附加功能: rewrite(重写) /filter(分流) 过滤, 可用于解决无法单独禁用远程引用中某(几)条 rewrite/hostname/filter, 以及直接导入 Surge 类型规则 list 的问题
 
@@ -137,10 +137,10 @@ if(flag==3){
 		$notify("🐷 "+"["+subtag+"]"+" 开始转换节点订阅","🐼️ 如需筛选节点请使用in/out及其他参数，可参考此示范:","👉 https://t.me/QuanXNews/110");}
 	}
 	if(Pemoji){
-			if(Pntf0!=0){
-			$notify("🏳️‍🌈 "+"["+subtag+"]"+" 开始更改旗帜 emoji","清除emoji请用参数 -1, 国行设备添加emoji请使用参数 2","你当前所用的参数为 emoji="+Pemoji)};
-			total=emoji_handle(total,Pemoji);
-		}
+				if(Pntf0!=0){
+				$notify("🏳️‍🌈 "+"["+subtag+"]"+" 开始更改旗帜 emoji","清除emoji请用参数 -1, 国行设备添加emoji请使用参数 2","你当前所用的参数为 emoji="+Pemoji)};
+				total=emoji_handle(total,Pemoji);
+			}
 	if(Prname){
 		if(Pntf0!=0){ 
 		$notify("🏳️‍🌈 "+"["+subtag+"]"+" 开始节点重命名","格式为 \"旧名字@新名字\"","你当前所用的参数为"+Prname);}
@@ -397,14 +397,16 @@ function SubsEd2QX(subs,Pudp,Ptfo,Pcert,Ptls13){
 	var QuanXK=["shadowsocks=","trojan=","vmess=","http="];
 	var SurgeK=["=ss","=vmess","=trojan","=http","=custom"];
 	var QXlist=[];
-	var node=""
 	for(i=0;i<list0.length;i++){
+		var node=""
 		if(list0[i].trim().length>3){
 		var type=list0[i].split("://")[0].trim()
+		//$notify(type)
 		var listi=list0[i].replace(/ /g,"")
 		const QuanXCheck = (item) => listi.toLowerCase().indexOf(item)!=-1;
 		const SurgeCheck = (item) => listi.toLowerCase().indexOf(item)!=-1;
 		if(type=="vmess"){
+			
 			node= V2QX(list0[i],Pudp,Ptfo,Pcert,Ptls13)
 		}else if(type=="ssr"){
 			node= SSR2QX(list0[i],Pudp,Ptfo)
@@ -412,6 +414,8 @@ function SubsEd2QX(subs,Pudp,Ptfo,Pcert,Ptls13){
 			node = SS2QX(list0[i],Pudp,Ptfo)
 		}else if(type=="trojan"){
 			node = TJ2QX(list0[i],Pudp,Ptfo,Pcert,Ptls13)
+		}else if(type="https"){ //subs,Ptfo,Pcert,Ptls13
+			node = HPS2QX(list0[i],Ptfo,Pcert,Ptls13)
 		}else if(QuanXK.some(QuanXCheck)){
 			node = list0[i]
 		}else if(SurgeK.some(SurgeCheck)){
@@ -431,8 +435,8 @@ function Subs2QX(subs,Pudp,Ptfo,Pcert,Ptls13){
 	var QuanXK=["shadowsocks=","trojan=","vmess=","http="];
 	var SurgeK=["=ss","=vmess","=trojan","=http"];
 	var QXlist=[];
-	var node=""
 	for(i=0;i<list0.length;i++){
+		var node=""
 		if(list0[i].trim().length>3){
 		var type=list0[i].split("://")[0].trim()
 		var listi=list0[i].replace(/ /g,"")
@@ -446,6 +450,8 @@ function Subs2QX(subs,Pudp,Ptfo,Pcert,Ptls13){
 			node = SS2QX(list0[i],Pudp,Ptfo)
 		}else if(type=="trojan"){
 			node = TJ2QX(list0[i],Pudp,Ptfo,Pcert,Ptls13)
+		}else if(type="https"){
+			node = HPS2QX(list0[i],Ptfo,Pcert,Ptls13)
 		}else if(QuanXK.some(QuanXCheck)){
 			node = list0[i]
 		}else if(SurgeK.some(SurgeCheck)){
@@ -488,7 +494,27 @@ function TagCheck_QX(content){
 		}
 	return Nlist
 }
-	
+//http=example.com:443, username=name, password=pwd, over-tls=true, tls-host=example.com, tls-verification=true, tls13=true, fast-open=false, udp-relay=false, tag=http-tls-02
+//HTTPS 类型 URI 转换成 QUANX 格式
+function HPS2QX(subs,Ptfo,Pcert,Ptls13){
+
+	var server=Base64.decode(subs.replace("https://","")).trim().split("\u0000")[0];
+	var nss=[]
+	if(server!=""){
+		var ipport="http="+server.split("@")[1].split("#")[0].split("/")[0];
+		var uname="username="+server.split(":")[0];
+		var pwd="password="+server.split("@")[0].split(":")[1];
+		var tag="tag="+server.split("#")[1];
+		var tls="over-tls=true";
+		var cert=Pcert!=0? "tls-verification=true":"tls-verification=false";
+		var tfo=Ptfo==1? "fast-open=true":"fast-open=false";
+		var tls13=Ptls13==1? "tls13=true":"tls13=false";
+		nss.push(ipport,uname,pwd,tls,cert,tfo,tls13,tag)
+	}
+	var QX=nss.join(",");
+	return QX
+	//$notify("ts","content",QX)
+}	
 
 //V2RayN uri转换成 QUANX 格式
 function V2QX(subs,Pudp,Ptfo,Pcert,Ptls13){
@@ -722,18 +748,21 @@ function Rename(str){
 	var server=str;
 	if(server.indexOf("tag=")!=-1){
 		hd=server.split("tag=")[0]
-		name=server.split("tag=")[1]
+		name=server.split("tag=")[1].trim()
 		for(i=0;i<Prn.length;i++){
 			nname=Prn[i].split("@")[1];
 			oname=Prn[i].split("@")[0];
 			if(oname&&nname){
-				//name=name.replace(new RegExp(oname,"gm"),nname)
-				while(name.indexOf(oname)!=-1){
-					name=name.replace(oname,nname)
-				}
-				}else if(oname){
-					name=oname+name
-				}else if(nname){
+				name=name.replace(new RegExp("\\"+oname,"gm"),nname)
+//				while(name.indexOf(oname)!=-1){
+//					name=name.replace(oname,nname)
+//				}
+				}else if(oname){//前缀
+					var nemoji=emoji_del(name)
+						if(Pemoji==1 || Pemoji==2){
+						name=name.replace(name.split(" ")[0]+" ",name.split(" ")[0]+" "+oname)
+					}else { name=oname+name}
+				}else if(nname){//后缀
 					name=name+nname
 				}else(name=name)	
 			nserver=hd+"tag="+name
@@ -754,8 +783,10 @@ function get_emoji(source,sname){
 		dd=cnt[key]
 		for(i in dd){
 			if(sname.indexOf(dd[i])!=-1){
-				flag=1
-				nname=key+" "+sname.trim();
+				flag=1;
+				sname=Pemoji==1 && key=="🇹🇼"? sname.replace("🇨🇳","🇹🇼"):sname;
+				sname=Pemoji==2 && key==" 🇨🇳"? sname.replace("🇹🇼","🇨🇳"):sname; //避免key重复，所以" 🇨🇳" 与"🇨🇳"
+				nname=sname.indexOf(key.trim())==-1? key+" "+sname.trim():key+" "+sname.replace(key.trim(),"").trim();
 				return nname
 				break;
 			}
@@ -770,9 +801,9 @@ function emoji_handle(servers,Pemoji){
 	var ser0=servers
 	for(var i=0;i<ser0.length; i++){
 		if(ser0[i].indexOf("tag=")!=-1){
-		var oname=ser0[i].split("tag=")[1];
+		var oname=ser0[i].split("tag=")[1].trim();
 		var hd=ser0[i].split("tag=")[0];
-		var nname=emoji_del(oname);
+		var nname=oname;//emoji_del(oname);
 		var Lmoji={"🏳️‍🌈": ["流量","时间","应急","过期","Bandwidth","expire"],"🇦🇨": ["AC"],"🇦🇹": ["奥地利","维也纳"],"🇦🇺": ["AU","Australia","Sydney","澳大利亚","澳洲","墨尔本","悉尼"],"🇧🇪": ["BE","比利时"],"🇧🇬️": ["保加利亚","Bulgaria"],"🇧🇷": ["BR","Brazil","巴西","圣保罗"],"🇨🇦": ["Canada","Waterloo","加拿大","蒙特利尔","温哥华","楓葉","枫叶","滑铁卢","多伦多"],"🇨🇭": ["瑞士","苏黎世"],"🇩🇪": ["DE","German","GERMAN","德国","德國","法兰克福"],"🇩🇰": ["丹麦"],"🇪🇸": ["ES","西班牙","Spain"],"🇪🇺": ["EU","欧盟","欧罗巴"],"🇫🇮": ["Finland","芬兰","赫尔辛基"],"🇫🇷": ["FR","France","法国","法國","巴黎"],"🇬🇧": ["UK","GB","England","United Kingdom","英国","伦敦","英"],"🇲🇴": ["MO","Macao","澳门","CTM"],"🇭🇺":["匈牙利","Hungary"],"🇭🇰": ["HK","Hongkong","Hong Kong","香港","深港","沪港","呼港","HKT","HKBN","HGC","WTT","CMI","穗港","京港","港"],"🇮🇩": ["Indonesia","印尼","印度尼西亚","雅加达"],"🇮🇪": ["Ireland","爱尔兰","都柏林"],"🇮🇳": ["India","印度","孟买","Mumbai"],"🇮🇹": ["Italy","Nachash","意大利","米兰","義大利"],"🇯🇵": ["JP","Japan","日本","东京","大阪","埼玉","沪日","穗日","川日","中日","泉日","杭日","深日","辽日"],"🇰🇵": ["KP","朝鲜"],"🇰🇷": ["KR","Korea","KOR","韩国","首尔","韩","韓"],"🇱🇻":["Latvia","拉脱维亚"], "🇲🇽️": ["MEX","MX","墨西哥"],"🇲🇾": ["MY","Malaysia","马来西亚","吉隆坡"],"🇳🇱": ["NL","Netherlands","荷兰","荷蘭","尼德蘭","阿姆斯特丹"],"🇵🇭": ["PH","Philippines","菲律宾"],"🇷🇴": ["RO","罗马尼亚"],"🇷🇺": ["RU","Russia","俄罗斯","俄羅斯","伯力","莫斯科","圣彼得堡","西伯利亚","新西伯利亚","京俄","杭俄"],"🇸🇦": ["沙特","迪拜"],"🇸🇪": ["SE","Sweden"],"🇸🇬": ["SG","Singapore","新加坡","狮城","沪新","京新","泉新","穗新","深新","杭新"],"🇹🇭": ["TH","Thailand","泰国","泰國","曼谷"],"🇹🇷": ["TR","Turkey","土耳其","伊斯坦布尔"],"🇹🇼": ["TW","Taiwan","台湾","台北","台中","新北","彰化","CHT","台","HINET"],"🇺🇸": ["US","USA","America","United States","美国","美","京美","波特兰","达拉斯","俄勒冈","凤凰城","费利蒙","硅谷","矽谷","拉斯维加斯","洛杉矶","圣何塞","圣克拉拉","西雅图","芝加哥","沪美","哥伦布","纽约"],"🇻🇳": ["VN","越南","胡志明市"],"🇿🇦":["South Africa","南非"],"🇦🇪":["United Arab Emirates","阿联酋"],"🇦🇷": ["AR","阿根廷"],"🇨🇳": ["CN","China","回国","中国","江苏","北京","上海","广州","深圳","杭州","徐州","青岛","宁波","镇江","back"]}
 		if(Pemoji==1) { 
 			str1 = JSON.stringify(Lmoji)
@@ -780,8 +811,10 @@ function emoji_handle(servers,Pemoji){
 			var nname=get_emoji(aa,nname)
 			} else if(Pemoji==2){
 				str1 = JSON.stringify(Lmoji)
-				aa=JSON.parse(str1.replace(/🇹🇼/g," 🇨🇳"))
-				var nname=get_emoji(aa,nname)
+				bb=JSON.parse(str1.replace(/🇹🇼/g," 🇨🇳"))
+				var nname=get_emoji(bb,nname)
+			}else if(Pemoji==-1){
+				nname=emoji_del(oname);
 			}
 		var nserver=hd+"tag="+nname.replace(" ️"," ").trim()
 		nlist.push(nserver)
