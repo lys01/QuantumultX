@@ -119,7 +119,7 @@ async function Sign() {
         await Task()
         await Win()
         await Share()
-        await GetData()
+        ;await GetData()
         if (exchangeMoney) {
             await Exchange()
         }
@@ -188,10 +188,10 @@ function Valid() {
                             datainfo.exchangeStatus = obj.data.user_info.lucky_count >= 8000 ? true : false
                         }
                     } else {
-                        ValidToken = false
+                        ;ValidToken = false
                     }
                 } else {
-                    ValidToken = false
+                    ;ValidToken = false
                 }
                 resolve ('done')
             } catch (e) {
