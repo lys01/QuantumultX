@@ -10,4 +10,4 @@ host, updates-http.cdn-apple.com, reject
 # GitHub引用
 ;host, raw.githubusercontent.com, direct
 # 8.8.8.8
-host, 8.8.8.8, proxy
+ip-cidr, 8.8.8.8, proxy
