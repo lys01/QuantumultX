@@ -1,15 +1,13 @@
 # App Store
 ;host, p14-buy.itunes.apple.com, proxy
 # 屏蔽系统更新
+host, xp.apple.com, reject
 host, mesu.apple.com, reject
 host, gdmf.apple.com, reject
 host, updates-http.cdn-apple.com, reject
-# 迅雷版权问题
-;host, hub5idx.v6.shub.sandai.net, reject
-;host, hub5emu.v6.shub.sandai.net, reject
-;host, hub5btmain.v6.shub.sandai.net, reject
 # 淘宝历史价格
 ;ip-cidr, 203.119.144.0/23, reject
-
 # GitHub引用
 ;host, raw.githubusercontent.com, direct
+# 8.8.8.8
+host, 8.8.8.8, proxy
