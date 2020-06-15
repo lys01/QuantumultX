@@ -3,6 +3,15 @@
  
  * 取消跳过Quantumult X的Rewrite模块添加
  opts: {"hints", false}
+  
+ * 通知跳转额外参数
+var option1 = {"open-url" : "https://bing.com", "media-url" : "https://github.githubassets.com/images/modules/open_graph/github-mark.png"};
+var option2 = {"open-url" : "https://bing.com"};
+var option3 = {"media-url" : "https://github.githubassets.com/images/modules/open_graph/github-mark.png"};
+
+$notify("Title", "Subtitle", "Body", option1);
+$notify("Title", "Subtitle", "Body", option2);
+$notify("Title", "Subtitle", "Body", option3);
  
  *示例 
 const u = "请求签到的链接";
