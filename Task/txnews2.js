@@ -248,7 +248,7 @@ function shareApp() {
    ID = signurlVal.match(/devid=[a-zA-Z0-9_-]+/g)
 return new Promise((resolve, reject) => {
   const openUrl = {
-    url: `https://url.cn/xk3Zs0Vc`,
+    url: `https://url.cn/53J6QY1V`,
     headers: {Cookie: cookieVal},
   }
    sy.get(openUrl, (error, response, data) => {
