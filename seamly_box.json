@@ -3,7 +3,7 @@
   "name": "seamly应用订阅",
   "author": "@seamly",
   "icon": "https://avatars0.githubusercontent.com/u/19585001?s=460&u= 2f5028cbd0896ebdda4efa12a8e484b56c97d424&v=4",
-  "repo": "https://ooxx.be/js",
+  "repo": "https://raw.githubusercontent.com/seamly01/QuantumultX/master/seamly_box.json",
   "apps": [
     {
       "id": "txnews",
