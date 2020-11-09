@@ -33,7 +33,7 @@
        "script": "https://gitee.com/Sunert/Scripts/raw/master/Task/txnews.js"
     },
         {
-      "id": "txnews",
+      "id": "txnews2",
       "name": "腾讯新闻2",
       "keys": ["sy_signurl_txnews2", "sy_cookie_txnews2","video_txnews2"],
       "author": "@sunert",
@@ -55,12 +55,12 @@
           "desc": "接口延迟时间"
         }          
       ],
-       "repo": "https://gitee.com/Sunert/Scripts/blob/master/Task/txnews.js",
+       "repo": "https://raw.githubusercontent.com/seamly01/QuantumultX/master/Task/txnews2.js",
        "icons": ["https://raw.githubusercontent.com/Orz-3/mini/master/txnews.png", "https://raw.githubusercontent.com/Orz-3/task/master/txnews.png"],
-       "script": "https://gitee.com/Sunert/Scripts/raw/master/Task/txnews.js"
+       "script": "https://raw.githubusercontent.com/seamly01/QuantumultX/master/Task/txnews2.js"
     },
         {
-      "id": "txnews",
+      "id": "txnews3",
       "name": "腾讯新闻3",
       "keys": ["sy_signurl_txnews3", "sy_cookie_txnews3","video_txnews3"],
       "author": "@sunert",
@@ -82,9 +82,9 @@
           "desc": "接口延迟时间"
         }          
       ],
-       "repo": "https://gitee.com/Sunert/Scripts/blob/master/Task/txnews.js",
+       "repo": "https://raw.githubusercontent.com/seamly01/QuantumultX/master/Task/txnews3.js",
        "icons": ["https://raw.githubusercontent.com/Orz-3/mini/master/txnews.png", "https://raw.githubusercontent.com/Orz-3/task/master/txnews.png"],
-       "script": "https://gitee.com/Sunert/Scripts/raw/master/Task/txnews.js"
+       "script": "https://raw.githubusercontent.com/seamly01/QuantumultX/master/Task/txnews3.js"
     }
   ]
 }
