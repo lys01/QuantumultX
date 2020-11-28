@@ -94,6 +94,15 @@
       "repo": "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.js",
       "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
       "script": "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.js"
+    },
+    {
+      "id": "QQ阅读",
+      "name": "QQ阅读",
+      "keys": ["checkinheader", "punchCardheader"],
+      "author": "@seamly",
+      "repo": "https://raw.githubusercontent.com/XidNDD/2020scripts/master/QQReadSign.js",
+      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
+      "script": "https://raw.githubusercontent.com/XidNDD/2020scripts/master/QQReadSign.js"
     }
   ]
 }
