@@ -85,6 +85,22 @@
        "repo": "https://raw.githubusercontent.com/seamly01/QuantumultX/master/Task/txnews3.js",
        "icons": ["https://raw.githubusercontent.com/Orz-3/mini/master/txnews.png", "https://raw.githubusercontent.com/Orz-3/task/master/txnews.png"],
        "script": "https://raw.githubusercontent.com/seamly01/QuantumultX/master/Task/txnews3.js"
+    },
+      {
+  "id": "elecV2.app.sub",
+  "name": "elecV2 中国电信金豆兑换话费",
+  "author": "@elecV2",
+  "icon": "https://avatars0.githubusercontent.com/u/57079799?s=400&v=4",
+  "repo": "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master",
+  "apps": [
+    {
+      "id": "中国电信金豆兑换话费",
+      "name": "中国电信金豆兑换话费",
+      "keys": ["dianx_headers", "dianx_body"],
+      "author": "@elecV2",
+      "repo": "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.js",
+      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
+      "script": "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.js"
     }
   ]
 }
