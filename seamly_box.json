@@ -107,7 +107,34 @@
     {
       "id": "企鹅读书",
       "name": "企鹅读书",
-      "keys": ["qqreadurl", "qqreadhd","qqreadbody"],
+      "keys": ["qqreadurl1", "qqreadhd1","qqreadbody1"],
+      "author": "@seamly",
+      "repo": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js",
+      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
+      "script": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js"
+    },
+   {
+      "id": "企鹅读书2",
+      "name": "企鹅读书",
+      "keys": ["qqreadurl2", "qqreadhd2","qqreadbody2"],
+      "author": "@seamly",
+      "repo": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js",
+      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
+      "script": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js"
+    },
+    {
+      "id": "企鹅读书3",
+      "name": "企鹅读书",
+      "keys": ["qqreadurl3", "qqreadhd3","qqreadbody3"],
+      "author": "@seamly",
+      "repo": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js",
+      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
+      "script": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js"
+    },
+    {
+      "id": "企鹅读书4",
+      "name": "企鹅读书",
+      "keys": ["qqreadurl4", "qqreadhd4","qqreadbody4"],
       "author": "@seamly",
       "repo": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js",
       "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
@@ -135,6 +162,24 @@
       "id": "QQ阅读1",
       "name": "QQ阅读",
       "keys": ["checkinheader1", "punchCardheader1"],
+      "author": "@seamly",
+      "repo": "https://raw.githubusercontent.com/XidNDD/2020scripts/master/QQReadSign.js",
+      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
+      "script": "https://raw.githubusercontent.com/XidNDD/2020scripts/master/QQReadSign.js"
+    },
+    {
+      "id": "QQ阅读2",
+      "name": "QQ阅读",
+      "keys": ["checkinheader2", "punchCardheader2"],
+      "author": "@seamly",
+      "repo": "https://raw.githubusercontent.com/XidNDD/2020scripts/master/QQReadSign.js",
+      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
+      "script": "https://raw.githubusercontent.com/XidNDD/2020scripts/master/QQReadSign.js"
+    },
+    {
+      "id": "QQ阅读3",
+      "name": "QQ阅读",
+      "keys": ["checkinheader3", "punchCardheader3"],
       "author": "@seamly",
       "repo": "https://raw.githubusercontent.com/XidNDD/2020scripts/master/QQReadSign.js",
       "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
