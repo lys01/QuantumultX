@@ -113,6 +113,24 @@
       "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
       "script": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js"
     },
+     {
+      "id": "早起打卡",
+      "name": "早起打卡",
+      "keys": ["dkurl"],
+      "author": "@seamly",
+      "repo": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js",
+      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
+      "script": "https://raw.githubusercontent.com/ziye12/JavaScript/master/zqdkziye.js"
+    },
+     {
+      "id": "早起打卡1",
+      "name": "早起打卡",
+      "keys": ["dkurl1"],
+      "author": "@seamly",
+      "repo": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js",
+      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
+      "script": "https://raw.githubusercontent.com/ziye12/JavaScript/master/zqdkziye.js"
+    },
     {
       "id": "QQ阅读1",
       "name": "QQ阅读",
