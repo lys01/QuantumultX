@@ -113,10 +113,9 @@
         {
           "id": "notifyInterval",
           "name": "通知频率",
-          "val": "",
-          "type": "number",
-          "placeholder": "1 (点击以展开说明)",
-          "desc": "阅读篇数间隔通知开为1，常关为0)"
+          "val": "3",
+          "type": "notifyInterval",
+          "desc": "间隔通知开为1，常关为0)"
         },         
       ],
       "repo": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js",
