@@ -103,6 +103,34 @@
       "repo": "https://raw.githubusercontent.com/XidNDD/2020scripts/master/QQReadSign.js",
       "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
       "script": "https://raw.githubusercontent.com/XidNDD/2020scripts/master/QQReadSign.js"
+    },
+    {
+      "id": "企鹅读书",
+      "name": "企鹅读书",
+      "keys": ["qqreadurl", "qqreadhd","qqreadbody"],
+      "author": "@seamly",
+      "settings": [
+        {
+          "id": "notifyInterval",
+          "name": "通知频率",
+          "val": "",
+          "type": "number",
+          "placeholder": "1 (点击以展开说明)",
+          "desc": "阅读篇数间隔通知开为1，常关为0)"
+        },         
+      ],
+      "repo": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js",
+      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
+      "script": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js"
+    },
+    {
+      "id": "QQ阅读1",
+      "name": "QQ阅读",
+      "keys": ["checkinheader1", "punchCardheader1"],
+      "author": "@seamly",
+      "repo": "https://raw.githubusercontent.com/XidNDD/2020scripts/master/QQReadSign.js",
+      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
+      "script": "https://raw.githubusercontent.com/XidNDD/2020scripts/master/QQReadSign.js"
     }
   ]
 }
