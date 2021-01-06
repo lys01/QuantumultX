@@ -104,42 +104,6 @@
       "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
       "script": "https://raw.githubusercontent.com/XidNDD/2020scripts/master/QQReadSign.js"
     },
-    {
-      "id": "企鹅读书",
-      "name": "企鹅读书",
-      "keys": ["qqreadurl1", "qqreadhd1","qqreadbody1","qqreadtimeurl1","qqreadtimehd1"],
-      "author": "@seamly",
-      "repo": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js",
-      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
-      "script": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js"
-    },
-   {
-      "id": "企鹅读书2",
-      "name": "企鹅读书",
-      "keys": ["qqreadurl2", "qqreadhd2", "qqreadbody2","qqreadtimeurl2","qqreadtimehd2"],
-      "author": "@seamly",
-      "repo": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js",
-      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
-      "script": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js"
-    },
-    {
-      "id": "企鹅读书3",
-      "name": "企鹅读书",
-      "keys": ["qqreadurl3", "qqreadhd3","qqreadbody3", "qqreadtimeurl3","qqreadtimehd3"],
-      "author": "@seamly",
-      "repo": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js",
-      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
-      "script": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js"
-    },
-    {
-      "id": "企鹅读书4",
-      "name": "企鹅读书",
-      "keys": ["qqreadurl4", "qqreadhd4", "qqreadbody4","qqreadtimeurl4","qqreadtimehd4"],
-      "author": "@seamly",
-      "repo": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js",
-      "icons": ["https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png", "https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/dianx/dianx.png"],
-      "script": "https://raw.githubusercontent.com/ziye12/JavaScript/master/qqread.js"
-    },
      {
       "id": "早起打卡",
       "name": "早起打卡",
