@@ -535,16 +535,6 @@ DOMAIN-SUFFIX,weebly.com,PROXY
 DOMAIN-SUFFIX,twitter.jp,PROXY
 
 # (Region-Restricted Access Denied)
-# ---(Apple)---
-DOMAIN-SUFFIX,appsto.re,PROXY
-DOMAIN,books.itunes.apple.com,PROXY
-DOMAIN,api-glb-sea.smoot.apple.com,PROXY
-DOMAIN,beta.music.apple.com,PROXY
-DOMAIN,tv.apple.com,PROXY
-DOMAIN,uts-api.itunes.apple.com,PROXY
-# > App Store Web Preview
-DOMAIN,apps.apple.com,PROXY
-DOMAIN,itunes.apple.com,PROXY
 # > Look Up
 DOMAIN-SUFFIX,smoot.apple.com,PROXY
 DOMAIN,lookup-api.apple.com,PROXY
@@ -566,12 +556,6 @@ DOMAIN-SUFFIX,sushi.com,PROXY
 # URL-REGEX,http:\/\/img\.sina\.com\/usweibo\/
 
 # (Network Jitter)
-# > Apple
-DOMAIN,appleid.apple.com,PROXY
-DOMAIN,developer.apple.com,PROXY
-DOMAIN,www.icloud.com,PROXY
-DOMAIN,ocsp.apple.com,PROXY
-DOMAIN,xp.apple.com,PROXY
 # > DigiCert
 DOMAIN,cacerts.digicert.com,PROXY
 DOMAIN,crl3.digicert.com,PROXY
